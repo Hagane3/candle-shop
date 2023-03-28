@@ -3,10 +3,15 @@ import classes from "./Button.module.scss";
 
 type Props = {
   children: React.ReactNode;
+  width: number;
 };
 
-const Button = ({ children }: Props) => {
-  return <button className={classes.root}>{children}</button>;
+const Button = ({ children, width }: Props) => {
+  return (
+    <button className={classes.root} style={{ width: `${width}%` }}>
+      {children}
+    </button>
+  );
 };
 
 export default Button;
