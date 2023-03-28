@@ -1,0 +1,39 @@
+.root {
+  height: 100%;
+  overflow: hidden;
+  filter: drop-shadow(0px 2.5551px 15.3306px rgba(123, 123, 123, 0.15));
+  border-radius: 8px;
+
+  .image {
+    background-color: var(--bg-tertiary);
+    height: 100%;
+    transform: translateY(30%);
+    img {
+      width: 100%;
+    }
+  }
+
+  .item_details {
+    background-color: var(--bg-primary);
+    display: flex;
+    flex-direction: column;
+    padding: 1em 0.5em;
+    position: relative;
+
+    h5,
+    p {
+      font-size: 1.4rem;
+    }
+
+    h5 {
+      text-align: left;
+      font-weight: 500;
+    }
+
+    p {
+      color: var(--text-tertiary);
+      font-weight: 600;
+      text-align: right;
+    }
+  }
+}
