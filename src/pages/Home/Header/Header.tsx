@@ -11,7 +11,7 @@ const Header = () => {
           All handmade with natural soy wax, Candleaf is a companion for all
           your pleasure moments .
         </h2>
-        <Button>Discovery our colection</Button>
+        <Button width={100}>Discovery our colection</Button>
       </div>
     </header>
   );
