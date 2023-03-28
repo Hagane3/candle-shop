@@ -1,7 +1,6 @@
 .root {
   position: relative;
   width: 100%;
-  border-bottom: 1px solid rgb(214, 214, 214);
 
   .wrapper {
     display: flex;
@@ -32,6 +31,8 @@
     width: 100%;
     padding: 1.4em 3.75em;
     z-index: -1;
+    background-color: var(--bg-primary);
+    border-top: 1px solid rgb(204, 204, 204);
 
     &.active {
       transform: translateY(100%);
