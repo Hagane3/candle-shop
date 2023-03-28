@@ -1,18 +1,51 @@
 .root {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.8rem 1.8rem;
-  position: relative;
+  position: fixed;
+  width: 100%;
+  border-bottom: 1px solid rgb(214, 214, 214);
 
-  .logo {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.8em 1.8em;
+    align-items: center;
+    position: relative;
+    background-color: var(--bg-primary);
+
+    .logo {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%);
+    }
+
+    .user_container {
+      display: flex;
+      gap: 1em;
+    }
   }
 
-  .user_container {
-    display: flex;
-    gap: 1rem;
+  .menu_list {
+    position: absolute;
+    bottom: 0;
+    transform: translateY(-100%);
+    transition: 1s;
+    left: 0;
+    width: 100%;
+    padding: 1.4em 3.75em;
+    z-index: -1;
+
+    &.active {
+      transform: translateY(100%);
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25em;
+
+      li {
+        font-size: 1.5rem;
+      }
+    }
   }
 }
