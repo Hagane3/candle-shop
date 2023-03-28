@@ -1,0 +1,30 @@
+.root {
+  height: 100vh;
+  width: 100%;
+  z-index: -1;
+  background: url("../../../assets/img/bg-mobile.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .container {
+    background-color: var(--bg-tertiary);
+    width: 90%;
+    padding: 2.5em 1.25em;
+    text-align: center;
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5em;
+      padding: 0 0.5em;
+    }
+
+    h2 {
+      font-size: 1.125rem;
+      font-weight: 500;
+      margin-bottom: 2em;
+    }
+  }
+}
