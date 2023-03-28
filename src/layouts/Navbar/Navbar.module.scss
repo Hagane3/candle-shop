@@ -1,0 +1,18 @@
+.root {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.8rem 1.8rem;
+  position: relative;
+
+  .logo {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+  }
+
+  .user_container {
+    display: flex;
+    gap: 1rem;
+  }
+}
