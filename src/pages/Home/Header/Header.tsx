@@ -4,7 +4,7 @@ import classes from "./Header.module.scss";
 
 const Header = () => {
   return (
-    <section className={classes.root}>
+    <header className={classes.root}>
       <div className={classes.container}>
         <h1>The nature candle</h1>
         <h2>
@@ -13,7 +13,7 @@ const Header = () => {
         </h2>
         <Button>Discovery our colection</Button>
       </div>
-    </section>
+    </header>
   );
 };
 
