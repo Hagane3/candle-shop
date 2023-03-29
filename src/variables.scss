@@ -1,12 +1,13 @@
 :root {
   --bg-primary: hsla(0, 0%, 100%, 1);
-  --bg-secondary: hsla(0, 0%, 15%, 1);
+  --bg-secondary: hsl(0, 0%, 15%);
   --bg-tertiary: hsla(220, 23%, 97%, 0.8);
   --bg-quaternary: hsl(148, 44%, 55%, 0.1);
 
   --text-primary: hsla(216, 74%, 17%, 1);
   --text-secondary: hsla(218, 19%, 45%, 1);
   --text-tertiary: hsla(147, 37%, 52%, 1);
+  --text-quaternary: hsla(0, 0%, 100%, 1);
 
   --btn-bg: hsla(147, 37%, 52%, 1);
   --btn-text: hsla(0, 0%, 100%, 1);
