@@ -3,6 +3,7 @@ import Benefits from "./Benefits/Benefits";
 import Header from "./Header/Header";
 import classes from "./index.module.scss";
 import Products from "./Products/Products";
+import Testimonials from "./Testimonials/Testimonials";
 
 const index = () => {
   return (
@@ -10,6 +11,7 @@ const index = () => {
       <Header />
       <Products />
       <Benefits />
+      <Testimonials />
     </main>
   );
 };
