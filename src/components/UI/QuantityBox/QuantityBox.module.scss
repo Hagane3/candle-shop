@@ -1,0 +1,38 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6em;
+
+  p {
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+
+  .quantity {
+    border: 1px solid var(--btn-bg);
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    justify-content: center;
+    padding: 0.2em 1em;
+
+    span {
+      font-size: 1.3rem;
+    }
+
+    button {
+      font-size: 1.5rem;
+
+      &:first-child {
+        color: var(--text-tertiary);
+      }
+
+      &:last-child {
+        color: var(--text-secondary);
+        font-size: 2rem;
+      }
+    }
+  }
+}

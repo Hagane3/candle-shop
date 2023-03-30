@@ -1,0 +1,69 @@
+.root {
+  margin-top: 2em;
+
+  input {
+    &[type="radio"] {
+      width: 1.1em;
+      height: 1.1em;
+    }
+  }
+
+  form {
+    label {
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+
+    .one_time {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      padding: 0 1.2em;
+    }
+
+    .subscription {
+      border: 1px solid rgb(217, 219, 223);
+      border-radius: 10px;
+      padding: 1.2em;
+      margin-top: 1em;
+
+      .subscription_header {
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+
+        input {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        label {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          select {
+            margin-left: 0.5em;
+          }
+        }
+
+        select {
+          padding: 0.1em 0;
+          border: 1px solid rgb(217, 219, 223);
+        }
+      }
+
+      .subscription_description {
+        p {
+          margin-top: 0.5em;
+
+          span {
+            color: var(--text-tertiary);
+            letter-spacing: 1px;
+            font-weight: 300;
+          }
+        }
+      }
+    }
+  }
+}
