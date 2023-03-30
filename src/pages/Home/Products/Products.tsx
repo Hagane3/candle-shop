@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "../../../components/UI/Button/Button";
 import ProductItem from "../ProductItem/ProductItem";
 
@@ -8,6 +9,7 @@ import classes from "./Products.module.scss";
 
 const Products = () => {
   const [visibleProducts, setVisibleProducts] = useState(2);
+  const navigate = useNavigate();
 
   const showAllProductsHandler = () => {
     setVisibleProducts(products.length);
@@ -20,12 +22,14 @@ const Products = () => {
       <div className={classes.products}>
         {products.slice(0, visibleProducts).map((product) => {
           return (
-            <ProductItem
-              key={product.id}
-              name={product.name}
-              price={product.price}
-              image={product.image}
-            />
+            <div onClick={() => navigate(`/products/${product.id}`)}>
+              <ProductItem
+                key={product.id}
+                name={product.name}
+                price={product.price}
+                image={product.image}
+              />
+            </div>
           );
         })}
       </div>
