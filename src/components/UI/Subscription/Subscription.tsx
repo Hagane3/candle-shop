@@ -13,7 +13,7 @@ const Subscription = () => {
           <div className={classes.subscription_header}>
             <input type="radio" name="sub" id="subscription" />
             <label htmlFor="subscription">
-              <span> Subscribe and delivery every</span>
+              <span>Sub & Delivery every</span>
               <select>
                 <option value="1 week">1 week</option>
                 <option value="2 weeks">2 weeks</option>
