@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+
+import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import classes from "./index.module.scss";
 import { products } from "../../data/products";
@@ -44,7 +46,9 @@ const index = () => {
           </div>
           <Subscription />
           <div className={classes.btn_container}>
-            <Button width={100}>Add to cart</Button>
+            <Link to="/cart">
+              <Button width={100}>Add to cart</Button>
+            </Link>
           </div>
           <div className={classes.details_container}>
             <p>
