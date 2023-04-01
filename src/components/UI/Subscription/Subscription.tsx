@@ -6,7 +6,7 @@ const Subscription = () => {
     <div className={classes.root}>
       <form>
         <div className={classes.one_time}>
-          <input type="radio" name="sub" id="onetime" checked />
+          <input type="radio" name="sub" id="onetime" defaultChecked />
           <label htmlFor="onetime">One time purchase</label>
         </div>
         <div className={classes.subscription}>
