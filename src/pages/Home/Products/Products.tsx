@@ -21,9 +21,13 @@ const Products = () => {
   );
 
   const fetchProducts = async (url: string) => {
-    const response = await fetch(url);
-    const data = await response.json();
-    dispatch(setProducts(data));
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      dispatch(setProducts(data));
+    } catch (error) {
+      console.log(`Something went wrong: ${error}`);
+    }
   };
 
   const showAllProductsHandler = () => {
