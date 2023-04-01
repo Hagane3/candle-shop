@@ -22,9 +22,11 @@ const Products = () => {
       <div className={classes.products}>
         {products.slice(0, visibleProducts).map((product) => {
           return (
-            <div onClick={() => navigate(`/products/${product.id}`)}>
+            <div
+              key={product.id}
+              onClick={() => navigate(`/products/${product.id}`)}
+            >
               <ProductItem
-                key={product.id}
                 name={product.name}
                 price={product.price}
                 image={product.image}
