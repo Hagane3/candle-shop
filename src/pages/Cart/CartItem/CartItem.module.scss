@@ -1,0 +1,42 @@
+.root {
+  display: flex;
+  gap: 1em;
+
+  .image_container {
+    width: 40%;
+    background-color: var(--bg-tertiary);
+    height: max-content;
+    padding: 1.2em 0.5em;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .item_container {
+    h3 {
+      font-size: 1.1rem;
+    }
+
+    .remove {
+      color: var(--text-tertiary);
+      text-decoration: underline;
+      font-size: 1.1rem;
+      margin-top: 1.5em;
+    }
+  }
+
+  .price_container {
+    text-align: right;
+
+    .price {
+      margin-bottom: 3em;
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+
+    .quantity_box {
+      font-size: 0.8rem;
+    }
+  }
+}
