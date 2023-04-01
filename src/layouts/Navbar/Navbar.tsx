@@ -7,6 +7,8 @@ import cart from "../../assets/icon/cart.svg";
 import profile from "../../assets/icon/profile.svg";
 import close from "../../assets/icon/close.svg";
 
+import { Link } from "react-router-dom";
+
 const Navbar = () => {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
 
@@ -24,12 +26,12 @@ const Navbar = () => {
           <Logo />
         </div>
         <div className={classes.user_container}>
-          <button>
+          <Link to="#">
             <img src={profile} alt="profile button" />
-          </button>
-          <button>
+          </Link>
+          <Link to="/cart">
             <img src={cart} alt="cart button" />
-          </button>
+          </Link>
         </div>
       </div>
       <div
