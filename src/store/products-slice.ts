@@ -1,33 +1,35 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-type CartItem = {
+export type Product = {
   id: number;
   image: string;
   name: string;
   price: number;
 };
 
-type Props = {
-  cart: CartItem[];
+export type Products = {
+  allProducts: Product[];
+  isLoading: boolean;
 };
 
-const initialState: Props = {
-  cart: [
-    {
-      id: 1,
-      image: "https://iili.io/HOKWRgp.webp",
-      name: "Spiced Mint",
-      price: 9.99,
-    },
-  ],
+const initialState: Products = {
+  allProducts: [],
+  isLoading: false,
 };
 
 const productsSlice = createSlice({
   name: "products",
   initialState,
-  reducers: {},
+  reducers: {
+    setProducts(state, action) {
+      state.allProducts = action.payload;
+    },
+    setIsLoading(state, action) {
+      state.isLoading = action.payload;
+    },
+  },
 });
 
-export const productsActions = productsSlice.actions;
+export const { setProducts, setIsLoading } = productsSlice.actions;
 
 export default productsSlice;
