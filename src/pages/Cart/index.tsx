@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
 
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
+
 import classes from "./index.module.scss";
 import Button from "../../components/UI/Button/Button";
 import CartItem from "./CartItem/CartItem";
 
 const index = () => {
+  const { cart } = useSelector((state: RootState) => state.cart);
+  console.log(cart);
   return (
     <main className={classes.root}>
       <header>
@@ -19,8 +24,10 @@ const index = () => {
           <p>Price</p>
         </div>
         <div className={classes.cart_items}>
-          <CartItem />
-          <CartItem />
+          {cart.map((item) => {
+            console.log(item);
+            return <CartItem key={item.id} product={item} />;
+          })}
         </div>
         <div className={classes.cart_subtotal}>
           <p>Sub-total</p>

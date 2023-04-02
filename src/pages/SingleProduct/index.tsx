@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import { RootState } from "../../store";
 import { Product } from "../../store/products-slice";
+
+import { addItem } from "../../store/cart-slice";
 
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -13,8 +15,12 @@ import Subscription from "../../components/UI/Subscription/Subscription";
 import Button from "../../components/UI/Button/Button";
 
 const index = () => {
+  const dispatch = useDispatch();
   const [product, setProduct] = useState<Product>();
   const { allProducts } = useSelector((state: RootState) => state.products);
+  const { cart } = useSelector((state: RootState) => state.cart);
+
+  console.log(cart);
 
   const { id } = useParams();
 
@@ -40,7 +46,12 @@ const index = () => {
           </div>
           <Subscription />
           <div className={classes.btn_container}>
-            <Link to="/cart">
+            <Link
+              to="/cart"
+              onClick={() => {
+                dispatch(addItem({ ...product, quantity: 1 }));
+              }}
+            >
               <Button width={100}>Add to cart</Button>
             </Link>
           </div>
