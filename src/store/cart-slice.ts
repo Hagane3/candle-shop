@@ -14,15 +14,7 @@ export type Cart = {
 };
 
 const initialState: Cart = {
-  cart: [
-    {
-      id: "1",
-      name: "Spiced Mint",
-      price: 9.99,
-      quantity: 1,
-      image: "https://iili.io/HOKWRgp.webp",
-    },
-  ],
+  cart: [],
   totalAmount: 0,
 };
 
@@ -38,11 +30,11 @@ const cartSlice = createSlice({
           id: newItem.id,
           name: newItem.name,
           price: newItem.price,
-          quantity: 1,
+          quantity: newItem.quantity,
           image: newItem.image,
         });
       } else {
-        existingItem.quantity++;
+        existingItem.quantity += newItem.quantity;
       }
     },
     calcTotalAmount(state) {

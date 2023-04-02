@@ -1,5 +1,5 @@
 import classes from "./CartItem.module.scss";
-import QuantityBox from "../../../components/UI/QuantityBox/QuantityBox";
+import QuantityBoxCart from "../../../components/UI/QuantityBoxCart/QuantityBoxCart";
 
 import image1 from "../../../assets/img/candles/clean-lavander.png";
 
@@ -16,7 +16,7 @@ const CartItem = ({ product }: any) => {
       <div className={classes.price_container}>
         <p className={classes.price}>{`$${product.price}`}</p>
         <div className={classes.quantity_box}>
-          <QuantityBox />
+          <QuantityBoxCart />
         </div>
       </div>
     </div>

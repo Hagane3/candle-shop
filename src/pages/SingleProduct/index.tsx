@@ -17,11 +17,8 @@ import Button from "../../components/UI/Button/Button";
 const index = () => {
   const dispatch = useDispatch();
   const [product, setProduct] = useState<Product>();
+  const [quantity, setQuantity] = useState(1);
   const { allProducts } = useSelector((state: RootState) => state.products);
-  const { cart } = useSelector((state: RootState) => state.cart);
-
-  console.log(cart);
-
   const { id } = useParams();
 
   useEffect(() => {
@@ -40,7 +37,10 @@ const index = () => {
             <div className={classes.price_quantity}>
               <span className={classes.price}>{`$ ${product.price}`}</span>
               <div className={classes.quantity}>
-                <QuantityBox />
+                <QuantityBox
+                  setQuantityHandler={setQuantity}
+                  quantity={quantity}
+                />
               </div>
             </div>
           </div>
@@ -49,7 +49,7 @@ const index = () => {
             <Link
               to="/cart"
               onClick={() => {
-                dispatch(addItem({ ...product, quantity: 1 }));
+                dispatch(addItem({ ...product, quantity: quantity }));
               }}
             >
               <Button width={100}>Add to cart</Button>
