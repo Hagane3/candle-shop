@@ -1,15 +1,22 @@
 import { Link } from "react-router-dom";
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store";
 
 import classes from "./index.module.scss";
 import Button from "../../components/UI/Button/Button";
 import CartItem from "./CartItem/CartItem";
+import { useEffect } from "react";
+import { calcTotalAmount } from "../../store/cart-slice";
 
 const index = () => {
-  const { cart } = useSelector((state: RootState) => state.cart);
-  console.log(cart);
+  const dispatch = useDispatch();
+  const { cart, totalAmount } = useSelector((state: RootState) => state.cart);
+
+  useEffect(() => {
+    dispatch(calcTotalAmount());
+  }, [cart]);
+
   return (
     <main className={classes.root}>
       <header>
@@ -31,9 +38,12 @@ const index = () => {
         </div>
         <div className={classes.cart_subtotal}>
           <p>Sub-total</p>
-          <p>$9.99</p>
+          <p>{totalAmount}</p>
         </div>
-        <p className={classes.cart_hint}>
+        <p
+          className={classes.cart_hint}
+          onClick={() => console.log(totalAmount)}
+        >
           Tax and shipping cost will be calculated later
         </p>
         <Button width={100}>Checkout</Button>

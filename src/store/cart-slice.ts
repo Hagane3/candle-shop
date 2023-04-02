@@ -10,10 +10,20 @@ type CartItem = {
 
 export type Cart = {
   cart: CartItem[];
+  totalAmount: number;
 };
 
 const initialState: Cart = {
-  cart: [],
+  cart: [
+    {
+      id: "1",
+      name: "Spiced Mint",
+      price: 9.99,
+      quantity: 1,
+      image: "https://iili.io/HOKWRgp.webp",
+    },
+  ],
+  totalAmount: 0,
 };
 
 const cartSlice = createSlice({
@@ -35,9 +45,15 @@ const cartSlice = createSlice({
         existingItem.quantity++;
       }
     },
+    calcTotalAmount(state) {
+      state.totalAmount = state.cart.reduce(
+        (acc, item) => acc + item.price * item.quantity,
+        0
+      );
+    },
   },
 });
 
-export const { addItem } = cartSlice.actions;
+export const { addItem, calcTotalAmount } = cartSlice.actions;
 
 export default cartSlice;
