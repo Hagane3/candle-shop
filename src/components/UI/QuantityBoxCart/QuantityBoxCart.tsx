@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react";
-import classes from "./QuantityBox.module.scss";
+import { useState } from "react";
+import classes from "./QuantityBoxCart.module.scss";
 
-const QuantityBox = ({ setQuantityHandler, quantity }: any) => {
+const QuantityBox = () => {
+  const [quantity, setQuantity] = useState(1);
+
   const increaseQuantity = () => {
-    setQuantityHandler((prevState: number) => prevState + 1);
+    setQuantity((prevState) => prevState + 1);
   };
 
   const decreaseQuantity = () => {
     if (quantity > 1) {
-      setQuantityHandler((prevState: number) => prevState - 1);
+      setQuantity((prevState) => prevState - 1);
     }
   };
 

@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export type Product = {
-  id: number;
+  id: string;
   image: string;
   name: string;
   price: number;
+  quantity?: number;
 };
 
 export type Products = {
