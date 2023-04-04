@@ -58,6 +58,13 @@ const cartSlice = createSlice({
         existingItem.quantity--;
       }
     },
+    removeFromCart(state, action) {
+      const id = action.payload;
+      const existingItem = state.cart.find((item) => item.id === id);
+      if (existingItem) {
+        state.cart = state.cart.filter((item) => item.id !== id);
+      }
+    },
   },
 });
 
@@ -66,6 +73,7 @@ export const {
   calcTotalAmount,
   decreaseProductQuantity,
   increaseProductQuantity,
+  removeFromCart,
 } = cartSlice.actions;
 
 export default cartSlice;
