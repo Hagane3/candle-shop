@@ -37,7 +37,7 @@ const index = () => {
         </div>
         <div className={classes.cart_subtotal}>
           <p>Sub-total</p>
-          <p>{totalAmount}</p>
+          <p>{`$ ${totalAmount}`}</p>
         </div>
         <p
           className={classes.cart_hint}
