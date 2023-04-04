@@ -38,9 +38,10 @@ const cartSlice = createSlice({
       }
     },
     calcTotalAmount(state) {
-      state.totalAmount = state.cart.reduce(
-        (acc, item) => acc + item.price * item.quantity,
-        0
+      state.totalAmount = parseFloat(
+        state.cart
+          .reduce((acc, item) => acc + item.price * item.quantity, 0)
+          .toFixed(2)
       );
     },
     increaseProductQuantity(state, action) {
