@@ -4,6 +4,7 @@ import QuantityBoxCart from "../../../components/UI/QuantityBoxCart/QuantityBoxC
 import image1 from "../../../assets/img/candles/clean-lavander.png";
 
 const CartItem = ({ product }: any) => {
+  console.log(product);
   return (
     <div className={classes.root}>
       <div className={classes.image_container}>
@@ -16,7 +17,7 @@ const CartItem = ({ product }: any) => {
       <div className={classes.price_container}>
         <p className={classes.price}>{`$${product.price}`}</p>
         <div className={classes.quantity_box}>
-          <QuantityBoxCart />
+          <QuantityBoxCart prodId={product.id} />
         </div>
       </div>
     </div>
