@@ -1,16 +1,35 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import classes from "./QuantityBoxCart.module.scss";
 
-const QuantityBox = () => {
-  const [quantity, setQuantity] = useState(1);
+import {
+  decreaseProductQuantity,
+  increaseProductQuantity,
+} from "../../../store/cart-slice";
+
+type QuantityBoxProps = {
+  prodId: number;
+};
+
+const QuantityBox = ({ prodId }: QuantityBoxProps) => {
+  // const [quantity, setQuantity] = useState(1);
+  const { cart } = useSelector((state: any) => state.cart);
+  const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   const item = cart.find((item: any) => item.id === prodId);
+  //   setQuantity(item.quantity);
+  // }, []);
+
+  const productQuantity = cart.find((item: any) => item.id === prodId).quantity;
 
   const increaseQuantity = () => {
-    setQuantity((prevState) => prevState + 1);
+    dispatch(increaseProductQuantity(prodId));
   };
 
   const decreaseQuantity = () => {
-    if (quantity > 1) {
-      setQuantity((prevState) => prevState - 1);
+    if (productQuantity > 1) {
+      dispatch(decreaseProductQuantity(prodId));
     }
   };
 
@@ -19,7 +38,7 @@ const QuantityBox = () => {
       <p>Quantity</p>
       <div className={classes.quantity}>
         <button onClick={increaseQuantity}>+</button>
-        <span>{quantity}</span>
+        <span>{productQuantity}</span>
         <button onClick={decreaseQuantity}>-</button>
       </div>
     </div>

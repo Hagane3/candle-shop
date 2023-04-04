@@ -32,13 +32,12 @@ const index = () => {
         </div>
         <div className={classes.cart_items}>
           {cart.map((item) => {
-            console.log(item);
             return <CartItem key={item.id} product={item} />;
           })}
         </div>
         <div className={classes.cart_subtotal}>
           <p>Sub-total</p>
-          <p>{totalAmount}</p>
+          <p>{`$ ${totalAmount}`}</p>
         </div>
         <p
           className={classes.cart_hint}
