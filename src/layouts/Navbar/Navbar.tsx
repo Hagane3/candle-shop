@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import classes from "./Navbar.module.scss";
+
+import CartIcon from "../../components/UI/CartIcon/CartIcon";
 
 import Logo from "../../components/UI/Logo/Logo";
 import hamburger from "../../assets/icon/hamburger.svg";
-import cart from "../../assets/icon/cart.svg";
 import profile from "../../assets/icon/profile.svg";
 import close from "../../assets/icon/close.svg";
 
@@ -29,9 +30,7 @@ const Navbar = () => {
           <Link to="#">
             <img src={profile} alt="profile button" />
           </Link>
-          <Link to="/cart">
-            <img src={cart} alt="cart button" />
-          </Link>
+          <CartIcon />
         </div>
       </div>
       <div

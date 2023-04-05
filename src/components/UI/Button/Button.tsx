@@ -5,14 +5,15 @@ type Props = {
   children: React.ReactNode;
   width: number;
   showAllProducts?: () => void;
+  redirect?: () => void;
 };
 
-const Button = ({ children, width, showAllProducts }: Props) => {
+const Button = ({ children, width, showAllProducts, redirect }: Props) => {
   return (
     <button
       className={classes.root}
       style={{ width: `${width}%` }}
-      onClick={showAllProducts}
+      onClick={showAllProducts || redirect}
     >
       {children}
     </button>
