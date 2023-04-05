@@ -1,5 +1,6 @@
 .root {
   display: flex;
+  position: relative;
 
   .quantity_counter {
     height: 0.9rem;
@@ -8,7 +9,7 @@
     border-radius: 50%;
     position: absolute;
     top: -5%;
-    right: -10%;
+    right: -20%;
     z-index: 1;
     display: flex;
     justify-content: center;
