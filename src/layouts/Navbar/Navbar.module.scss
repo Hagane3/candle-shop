@@ -21,9 +21,30 @@
     .user_container {
       display: flex;
       gap: 1em;
+      position: relative;
 
       a {
         display: flex;
+      }
+
+      .quantity_counter {
+        height: 0.9rem;
+        width: 0.9rem;
+        background-color: var(--btn-bg);
+        border-radius: 50%;
+        position: absolute;
+        top: -5%;
+        right: -10%;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        span {
+          font-size: 0.6rem;
+          font-weight: 500;
+          color: var(--text-quaternary);
+        }
       }
     }
   }

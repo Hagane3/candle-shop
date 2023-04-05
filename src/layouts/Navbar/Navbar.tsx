@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 import classes from "./Navbar.module.scss";
 
 import Logo from "../../components/UI/Logo/Logo";
 import hamburger from "../../assets/icon/hamburger.svg";
-import cart from "../../assets/icon/cart.svg";
+import cartIcon from "../../assets/icon/cartIcon.svg";
 import profile from "../../assets/icon/profile.svg";
 import close from "../../assets/icon/close.svg";
 
@@ -11,6 +12,13 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
+  const { cart } = useSelector((state: any) => state.cart);
+  console.log(cart.reduce((acc: number, item: any) => acc + item.quantity, 0));
+
+  const cartQuantity = cart.reduce(
+    (acc: number, item: any) => acc + item.quantity,
+    0
+  );
 
   const toggleMenuHandler = () => {
     setIsMenuOpened((prevState) => !prevState);
@@ -30,7 +38,12 @@ const Navbar = () => {
             <img src={profile} alt="profile button" />
           </Link>
           <Link to="/cart">
-            <img src={cart} alt="cart button" />
+            <img src={cartIcon} alt="cart button" />
+            {cartQuantity > 0 && (
+              <div className={classes.quantity_counter}>
+                <span>{cartQuantity}</span>
+              </div>
+            )}
           </Link>
         </div>
       </div>
