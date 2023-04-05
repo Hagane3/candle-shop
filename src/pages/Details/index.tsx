@@ -1,7 +1,11 @@
-import React from "react";
+import classes from "./index.module.scss";
 
 const index = () => {
-  return <div>Details</div>;
+  return (
+    <main className={classes.root}>
+      <div className={classes.summary_product}></div>
+    </main>
+  );
 };
 
 export default index;
