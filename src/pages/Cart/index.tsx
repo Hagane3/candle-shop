@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store";
@@ -11,11 +11,16 @@ import { calcTotalAmount } from "../../store/cart-slice";
 
 const index = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { cart, totalAmount } = useSelector((state: RootState) => state.cart);
 
   useEffect(() => {
     dispatch(calcTotalAmount());
   }, [cart]);
+
+  const goToCheckoutHandler = () => {
+    navigate("/order/details");
+  };
 
   return (
     <main className={classes.root}>
@@ -39,13 +44,12 @@ const index = () => {
           <p>Sub-total</p>
           <p>{`$ ${totalAmount}`}</p>
         </div>
-        <p
-          className={classes.cart_hint}
-          onClick={() => console.log(totalAmount)}
-        >
+        <p className={classes.cart_hint}>
           Tax and shipping cost will be calculated later
         </p>
-        <Button width={100}>Checkout</Button>
+        <Button width={100} redirect={goToCheckoutHandler}>
+          Checkout
+        </Button>
       </div>
     </main>
   );
