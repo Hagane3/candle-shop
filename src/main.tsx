@@ -10,6 +10,9 @@ import Home from "./pages/Home/index";
 import SingleProduct from "./pages/SingleProduct/index";
 import Cart from "./pages/Cart/index";
 
+import Order from "./layouts/Order/Order";
+import Details from "./pages/Details/index";
+
 import App from "./App";
 import "./index.scss";
 
@@ -29,6 +32,16 @@ const router = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />,
+      },
+    ],
+  },
+  {
+    path: "/order",
+    element: <Order />,
+    children: [
+      {
+        path: "/order/details",
+        element: <Details />,
       },
     ],
   },
