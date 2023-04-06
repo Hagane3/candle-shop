@@ -2,10 +2,13 @@ import classes from "./Form.module.scss";
 
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
+
+import * as yup from "yup";
+
 import Button from "../../../components/UI/Button/Button";
 
 type Inputs = {
-  contact: string;
+  email: string;
   discount: boolean;
   name: string;
   secondName: string;
@@ -18,8 +21,9 @@ type Inputs = {
 };
 
 const Contact = () => {
-  const { register, handleSubmit, control, watch } = useForm<Inputs>();
+  const schema = yup.object().shape({});
 
+  const { register, handleSubmit, control, watch } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
 
   return (
@@ -34,8 +38,8 @@ const Contact = () => {
           </div>
         </div>
         <input
-          placeholder="Email or mobile phone number"
-          {...(register("contact"), { required: true })}
+          placeholder="Email"
+          {...(register("email"), { required: true })}
         />
         <div className={classes.discount}>
           <input type="checkbox" {...register("discount")} id="discount" />
