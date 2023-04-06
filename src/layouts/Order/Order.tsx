@@ -1,10 +1,10 @@
-import Navbar from "../Navbar/Navbar";
 import { Outlet } from "react-router-dom";
+import OrderNavbar from "./OrderNavbar/OrderNavbar";
 
 const Order = () => {
   return (
     <div>
-      <Navbar />
+      <OrderNavbar />
       <Outlet />
     </div>
   );
