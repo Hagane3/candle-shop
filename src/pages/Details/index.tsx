@@ -7,6 +7,7 @@ import classes from "./index.module.scss";
 import arrowdown from "../../assets/icon/arrowdown.svg";
 import OrderDetailsProduct from "./OrderDetailsProduct/OrderDetailsProduct";
 import { CartItem } from "../../store/cart-slice";
+import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
 
 const index = () => {
   const { totalAmount, cart } = useSelector((state: any) => state.cart);
@@ -36,6 +37,7 @@ const index = () => {
           <OrderDetailsProduct key={item.id} product={item} />
         ))}
       </div>
+      <Breadcrumbs />
     </main>
   );
 };
