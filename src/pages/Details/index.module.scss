@@ -29,7 +29,8 @@
 
   .products {
     transform: translateY(-200%);
-    z-index: -10;
+    position: absolute;
+    background-color: var(--bg-primary);
     transition: transform 0.6s ease-in-out;
 
     &.active {
