@@ -1,0 +1,16 @@
+.root {
+  position: relative;
+  width: 100%;
+  z-index: 999;
+
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-primary);
+    padding: 1.5em 1.8em;
+
+    .logo {
+    }
+  }
+}
