@@ -8,6 +8,7 @@ import arrowdown from "../../assets/icon/arrowdown.svg";
 import OrderDetailsProduct from "./OrderDetailsProduct/OrderDetailsProduct";
 import { CartItem } from "../../store/cart-slice";
 import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
+import Form from "./Form/Form";
 
 const index = () => {
   const { totalAmount, cart } = useSelector((state: any) => state.cart);
@@ -38,6 +39,7 @@ const index = () => {
         ))}
       </div>
       <Breadcrumbs />
+      <Form />
     </main>
   );
 };

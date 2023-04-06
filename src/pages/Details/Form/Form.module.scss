@@ -1,0 +1,72 @@
+.root {
+  padding: 2.5em 1em 2em 1em;
+
+  input {
+    width: 100%;
+    padding: 0.8em 1.2em;
+    border-radius: 0;
+    border: 1px solid hsla(0, 0%, 90%, 1);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+
+  .contact {
+    .contact_label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5em;
+
+      h2 {
+        font-size: 1.25rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        font-weight: 500;
+
+        span {
+          color: var(--text-tertiary);
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  .discount {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1em;
+
+    input {
+      height: 1em;
+      width: 1em;
+    }
+
+    label {
+      font-size: 0.9rem;
+    }
+  }
+
+  .shipping {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+    margin-top: 2em;
+
+    .dropdown {
+      width: 100%;
+      padding: 0.8em 1.2em;
+      border-radius: 0;
+      border: 1px solid hsla(0, 0%, 90%, 1);
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+  }
+
+  .btn_container {
+    margin-top: 3em;
+  }
+}
