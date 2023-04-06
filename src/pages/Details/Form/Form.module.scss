@@ -8,6 +8,10 @@
     border: 1px solid hsla(0, 0%, 90%, 1);
     font-size: 0.9rem;
     color: var(--text-secondary);
+
+    &:focus {
+      outline: 1px solid var(--text-tertiary);
+    }
   }
 
   .contact {
@@ -68,5 +72,11 @@
 
   .btn_container {
     margin-top: 3em;
+  }
+
+  .error {
+    color: var(--text-error);
+    font-size: 0.8rem;
+    margin-top: 0.5em;
   }
 }

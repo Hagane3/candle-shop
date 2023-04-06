@@ -5,6 +5,8 @@ import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 
 import * as yup from "yup";
 
+import { yupResolver } from "@hookform/resolvers/yup";
+
 import Button from "../../../components/UI/Button/Button";
 
 type Inputs = {
@@ -21,10 +23,29 @@ type Inputs = {
 };
 
 const Contact = () => {
-  const schema = yup.object().shape({});
+  const schema = yup.object().shape({
+    email: yup.string().email().required(),
+    discount: yup.boolean(),
+    name: yup.string().required(),
+    secondName: yup.string().required(),
+    address: yup.string().required(),
+    shippingNote: yup.string(),
+    postalCode: yup.string().required(),
+    city: yup.string().required(),
+    country: yup.string().required(),
+    region: yup.string().required(),
+  });
 
-  const { register, handleSubmit, control, watch } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const {
+    register,
+    handleSubmit,
+    control,
+    watch,
+    formState: { errors },
+  } = useForm<Inputs>({
+    resolver: yupResolver(schema),
+  });
+  const onSubmit: SubmitHandler<Inputs> = (data) => alert(`ORDER: ${data}`);
 
   return (
     <section className={classes.root}>
@@ -37,10 +58,10 @@ const Contact = () => {
             </p>
           </div>
         </div>
-        <input
-          placeholder="Email"
-          {...(register("email"), { required: true })}
-        />
+        <input placeholder="Email" {...register("email")} />
+        {errors.email && (
+          <p className={classes.error}>{errors.email.message}</p>
+        )}
         <div className={classes.discount}>
           <input type="checkbox" {...register("discount")} id="discount" />
           <label htmlFor="discount">
@@ -49,30 +70,33 @@ const Contact = () => {
         </div>
         <div className={classes.shipping}>
           <h2>Shipping</h2>
+          <input placeholder="Name" {...register("name")} />
+          {errors.name && (
+            <p className={classes.error}>{errors.name.message}</p>
+          )}
+          <input placeholder="Second Name" {...register("secondName")} />
+          {errors.secondName && (
+            <p className={classes.error}>{errors.secondName.message}</p>
+          )}
+          <input placeholder="Adress and number" {...register("address")} />
+          {errors.address && (
+            <p className={classes.error}>{errors.address.message}</p>
+          )}
           <input
-            placeholder="Name"
-            {...(register("name"), { required: true })}
-          />
-          <input
-            defaultValue="Second Name"
-            {...(register("secondName"), { required: true })}
-          />
-          <input
-            defaultValue="Adress and number"
-            {...(register("address"), { required: true })}
-          />
-          <input
-            defaultValue="Shipping note (optional)"
+            placeholder="Shipping note (optional)"
             {...register("shippingNote")}
           />
-          <input
-            defaultValue="Postal Code"
-            {...(register("postalCode"), { required: true })}
-          />
-          <input
-            defaultValue="City"
-            {...(register("city"), { required: true })}
-          />
+          {errors.shippingNote && (
+            <p className={classes.error}>{errors.shippingNote.message}</p>
+          )}
+          <input placeholder="Postal Code" {...register("postalCode")} />
+          {errors.postalCode && (
+            <p className={classes.error}>{errors.postalCode.message}</p>
+          )}
+          <input placeholder="City" {...register("city")} />
+          {errors.city && (
+            <p className={classes.error}>{errors.city.message}</p>
+          )}
           <Controller
             name="country"
             render={({ field: { name, value, onChange } }) => (
@@ -83,9 +107,11 @@ const Contact = () => {
                 classes={classes.dropdown}
               />
             )}
-            rules={{ required: true }}
             control={control}
           />
+          {errors.country && (
+            <p className={classes.error}>{errors.country.message}</p>
+          )}
           <Controller
             name="region"
             render={({ field: { name, value, onChange } }) => (
@@ -97,11 +123,16 @@ const Contact = () => {
                 classes={classes.dropdown}
               />
             )}
-            rules={{ required: true }}
             control={control}
           />
         </div>
-        <div className={classes.btn_container}>
+        {errors.region && (
+          <p className={classes.error}>{errors.region.message}</p>
+        )}
+        <div
+          className={classes.btn_container}
+          onClick={() => console.log(errors)}
+        >
           <Button width={100} submit={true}>
             Go to shipping
           </Button>
