@@ -35,9 +35,9 @@ const Breadcrumbs = () => {
       </Link>
       <img src={arrowbreadcrumbs} alt="arrow breadcrumbs" />
       <Link
-        to="/order/shipping"
+        to="/order/payment"
         className={`${classes.link} ${
-          location.pathname === "/order/shipping" ? classes.active : ""
+          location.pathname === "/order/payment" ? classes.active : ""
         }`}
       >
         Payment

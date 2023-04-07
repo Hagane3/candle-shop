@@ -6,14 +6,22 @@ type Props = {
   width: number;
   showAllProducts?: () => void;
   redirect?: () => void;
+  submit?: boolean;
 };
 
-const Button = ({ children, width, showAllProducts, redirect }: Props) => {
+const Button = ({
+  children,
+  width,
+  showAllProducts,
+  redirect,
+  submit,
+}: Props) => {
   return (
     <button
       className={classes.root}
       style={{ width: `${width}%` }}
       onClick={showAllProducts || redirect}
+      type={submit ? "submit" : "button"}
     >
       {children}
     </button>

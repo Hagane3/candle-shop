@@ -12,6 +12,8 @@ import Cart from "./pages/Cart/index";
 
 import Order from "./layouts/Order/Order";
 import Details from "./pages/Details/index";
+import Shipping from "./pages/Shipping/index";
+import Payment from "./pages/Payment/index";
 
 import App from "./App";
 import "./index.scss";
@@ -42,6 +44,14 @@ const router = createBrowserRouter([
       {
         path: "/order/details",
         element: <Details />,
+      },
+      {
+        path: "/order/shipping",
+        element: <Shipping />,
+      },
+      {
+        path: "/order/payment",
+        element: <Payment />,
       },
     ],
   },
