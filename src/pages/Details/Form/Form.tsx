@@ -8,6 +8,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import Button from "../../../components/UI/Button/Button";
+import { useNavigate } from "react-router-dom";
 
 type Inputs = {
   email: string;
@@ -23,6 +24,8 @@ type Inputs = {
 };
 
 const Contact = () => {
+  const navigate = useNavigate();
+
   const schema = yup.object().shape({
     email: yup.string().email().required(),
     discount: yup.boolean(),
@@ -45,7 +48,9 @@ const Contact = () => {
   } = useForm<Inputs>({
     resolver: yupResolver(schema),
   });
-  const onSubmit: SubmitHandler<Inputs> = (data) => alert(`ORDER: ${data}`);
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    navigate("/order/shipping");
+  };
 
   return (
     <section className={classes.root}>
