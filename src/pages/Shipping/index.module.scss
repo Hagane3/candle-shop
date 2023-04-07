@@ -1,0 +1,42 @@
+.root {
+  margin: 0 1em;
+
+  .summary_info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+    border: 1px solid hsla(0, 0%, 90%, 1);
+    border-radius: 6px;
+    padding: 1em 1.2em;
+
+    .line {
+      content: "";
+      background-color: hsla(0, 0%, 90%, 1);
+      height: 1px;
+      width: 100%;
+    }
+
+    .summary_contact,
+    .summary_shipping {
+      display: flex;
+      align-items: center;
+    }
+
+    .summary_shipping {
+      p {
+        flex-basis: 15%;
+      }
+    }
+
+    p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-right: 0.5em;
+      font-weight: 500;
+    }
+
+    span {
+      font-size: 0.9rem;
+    }
+  }
+}
