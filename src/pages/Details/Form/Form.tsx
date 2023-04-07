@@ -3,6 +3,9 @@ import classes from "./Form.module.scss";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 
+import { useDispatch } from "react-redux";
+import { addOrder } from "../../../store/order-slice";
+
 import * as yup from "yup";
 
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -25,6 +28,7 @@ type Inputs = {
 
 const Contact = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const schema = yup.object().shape({
     email: yup.string().email().required(),
@@ -49,6 +53,7 @@ const Contact = () => {
     resolver: yupResolver(schema),
   });
   const onSubmit: SubmitHandler<Inputs> = (data) => {
+    dispatch(addOrder(data));
     navigate("/order/shipping");
   };
 
