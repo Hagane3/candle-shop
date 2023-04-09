@@ -40,7 +40,9 @@ const PaymentForm = ({ orderHandler, loadingHandler }: Props) => {
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     loadingHandler(true);
-    dispatch(addToOrder({ payment: { ...data } }));
+    dispatch(
+      addToOrder({ payment: { ...data }, id: (Math.random() * 100).toFixed() })
+    );
     loadingHandler(false);
     orderHandler(true);
   };
