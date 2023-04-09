@@ -51,7 +51,7 @@ const index = () => {
                 type="radio"
                 id="standard"
                 name="shipping"
-                value="standard"
+                value="Standard Shipping"
                 checked
               />
               <label htmlFor="standard">Standard Shipping</label>
@@ -66,7 +66,7 @@ const index = () => {
                 type="radio"
                 id="priority"
                 name="shipping"
-                value="priority"
+                value="Priority Shipping"
               />
               <label htmlFor="priority">Priority Shipping</label>
             </div>
