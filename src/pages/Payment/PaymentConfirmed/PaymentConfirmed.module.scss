@@ -1,0 +1,28 @@
+.root {
+  margin: 0 1em;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 1em;
+  .icon {
+    width: 30%;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .orderNumber {
+    color: var(--text-tertiary);
+  }
+
+  .notify_text {
+    text-align: justify;
+    color: var(--text-secondary);
+  }
+
+  .button_container {
+    margin-top: 2em;
+  }
+}

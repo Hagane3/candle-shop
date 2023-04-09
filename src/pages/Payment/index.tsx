@@ -4,6 +4,7 @@ import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
 import SummaryCart from "../../components/SummaryCart/SummaryCart";
 import classes from "./index.module.scss";
 import PaymentForm from "./PaymentForm/PaymentForm";
+import PaymentConfirmed from "./PaymentConfirmed/PaymentConfirmed";
 
 const index = () => {
   const [isPaymentConfirmed, setIsPaymentConfirmed] = useState(true);
@@ -12,7 +13,7 @@ const index = () => {
     <div className={classes.root}>
       <SummaryCart />
       <Breadcrumbs />
-      <PaymentForm />
+      {isPaymentConfirmed ? <PaymentConfirmed /> : <PaymentForm />}
     </div>
   );
 };
