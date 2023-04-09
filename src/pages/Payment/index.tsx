@@ -5,15 +5,26 @@ import SummaryCart from "../../components/SummaryCart/SummaryCart";
 import classes from "./index.module.scss";
 import PaymentForm from "./PaymentForm/PaymentForm";
 import PaymentConfirmed from "./PaymentConfirmed/PaymentConfirmed";
+import Spinner from "../../components/UI/Spinner/Spinner";
 
 const index = () => {
-  const [isPaymentConfirmed, setIsPaymentConfirmed] = useState(true);
+  const [isPaymentConfirmed, setIsPaymentConfirmed] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <div className={classes.root}>
       <SummaryCart />
       <Breadcrumbs />
-      {isPaymentConfirmed ? <PaymentConfirmed /> : <PaymentForm />}
+      {isLoading ? (
+        <Spinner />
+      ) : isPaymentConfirmed ? (
+        <PaymentConfirmed />
+      ) : (
+        <PaymentForm
+          orderHandler={setIsPaymentConfirmed}
+          loadingHandler={setIsLoading}
+        />
+      )}
     </div>
   );
 };

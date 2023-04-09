@@ -14,7 +14,12 @@ type Inputs = {
   billingAddress: string;
 };
 
-const PaymentForm = () => {
+type Props = {
+  orderHandler: (value: boolean) => void;
+  loadingHandler: (value: boolean) => void;
+};
+
+const PaymentForm = ({ orderHandler, loadingHandler }: Props) => {
   const dispatch = useDispatch();
 
   const schema = yup.object().shape({
@@ -34,7 +39,10 @@ const PaymentForm = () => {
   });
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
+    loadingHandler(true);
     dispatch(addToOrder({ payment: { ...data } }));
+    loadingHandler(false);
+    orderHandler(true);
   };
 
   const { order } = useSelector((state: any) => state.order);
