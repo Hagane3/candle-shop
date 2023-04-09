@@ -2,12 +2,20 @@ import classes from "./PaymentConfirmed.module.scss";
 import checkcircle from "../../../assets/icon/checkcircle.svg";
 import Button from "../../../components/UI/Button/Button";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+
+import { clearCart } from "../../../store/cart-slice";
 
 const PaymentConfirmed = () => {
-  const { order } = useSelector((state: any) => state.order);
-  console.log(order);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { order } = useSelector((state: any) => state.order);
+
+  useEffect(() => {
+    dispatch(clearCart());
+  }, []);
+
   return (
     <div className={classes.root}>
       <img src={checkcircle} className={classes.icon} />

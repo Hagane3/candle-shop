@@ -65,6 +65,9 @@ const cartSlice = createSlice({
         state.cart = state.cart.filter((item) => item.id !== id);
       }
     },
+    clearCart(state) {
+      state.cart = [];
+    },
   },
 });
 
@@ -74,6 +77,7 @@ export const {
   decreaseProductQuantity,
   increaseProductQuantity,
   removeFromCart,
+  clearCart,
 } = cartSlice.actions;
 
 export default cartSlice;
