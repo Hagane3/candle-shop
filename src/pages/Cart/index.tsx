@@ -40,16 +40,22 @@ const index = () => {
             return <CartItem key={item.id} product={item} />;
           })}
         </div>
-        <div className={classes.cart_subtotal}>
-          <p>Sub-total</p>
-          <p>{`$ ${totalAmount}`}</p>
+        <div className={classes.cart_amount}>
+          <div className={classes.cart_amount_container}>
+            <div className={classes.cart_subtotal}>
+              <p>Sub-total</p>
+              <p>{`$ ${totalAmount}`}</p>
+            </div>
+            <p className={classes.cart_hint}>
+              Tax and shipping cost will be calculated later
+            </p>
+          </div>
+          <div className={classes.btn_container}>
+            <Button width={100} redirect={goToCheckoutHandler}>
+              Checkout
+            </Button>
+          </div>
         </div>
-        <p className={classes.cart_hint}>
-          Tax and shipping cost will be calculated later
-        </p>
-        <Button width={100} redirect={goToCheckoutHandler}>
-          Checkout
-        </Button>
       </div>
     </main>
   );
