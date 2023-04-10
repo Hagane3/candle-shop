@@ -8,7 +8,7 @@ import PaymentConfirmed from "./PaymentConfirmed/PaymentConfirmed";
 import Spinner from "../../components/UI/Spinner/Spinner";
 
 const index = () => {
-  const [isPaymentConfirmed, setIsPaymentConfirmed] = useState(true);
+  const [isPaymentConfirmed, setIsPaymentConfirmed] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   return (
