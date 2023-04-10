@@ -20,11 +20,18 @@ const Navbar = () => {
   return (
     <nav className={classes.root}>
       <div className={classes.wrapper}>
-        <button className={classes.menu} onClick={toggleMenuHandler}>
+        <button className={classes.menu_btn} onClick={toggleMenuHandler}>
           <img src={isMenuOpened ? close : hamburger} alt="menu button" />
         </button>
         <div className={classes.logo}>
           <Logo />
+        </div>
+        <div className={classes.menu_desktop}>
+          <ul className={classes.menu}>
+            <li>Discovery</li>
+            <li>About</li>
+            <li>Contact Us</li>
+          </ul>
         </div>
         <div className={classes.user_container}>
           <Link to="#">
@@ -36,7 +43,7 @@ const Navbar = () => {
       <div
         className={`${classes.menu_list} ${isMenuOpened ? classes.active : ""}`}
       >
-        <ul>
+        <ul className={classes.menu}>
           <li>Discovery</li>
           <li>About</li>
           <li>Contact Us</li>
