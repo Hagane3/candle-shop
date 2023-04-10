@@ -62,3 +62,31 @@
     }
   }
 }
+
+@media only screen and (min-width: 64em) {
+  .root {
+    .wrapper {
+      .bar {
+        max-width: 70em;
+        margin: 0 auto;
+      }
+      .container {
+        display: flex;
+        gap: 20%;
+        justify-content: space-between;
+        max-width: 70em;
+        margin: 0 auto;
+
+        .logo_container {
+          flex: 2 1;
+        }
+
+        .footer_nav {
+          display: flex;
+          flex: 3 1;
+          justify-content: space-between;
+        }
+      }
+    }
+  }
+}
