@@ -8,12 +8,14 @@ import PaymentConfirmed from "./PaymentConfirmed/PaymentConfirmed";
 import Spinner from "../../components/UI/Spinner/Spinner";
 
 const index = () => {
-  const [isPaymentConfirmed, setIsPaymentConfirmed] = useState(false);
+  const [isPaymentConfirmed, setIsPaymentConfirmed] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
 
   return (
     <div className={classes.root}>
-      <SummaryCart />
+      <div className={classes.mobile}>
+        <SummaryCart />
+      </div>
       <Breadcrumbs />
       {isLoading ? (
         <Spinner />
