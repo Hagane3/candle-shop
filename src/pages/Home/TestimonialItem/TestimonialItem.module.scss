@@ -31,3 +31,9 @@
     font-weight: 400;
   }
 }
+
+@media only screen and (min-width: 64em) {
+  .root {
+    width: 100%;
+  }
+}
