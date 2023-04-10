@@ -80,33 +80,39 @@ const Contact = () => {
         </div>
         <div className={classes.shipping}>
           <h2>Shipping</h2>
-          <input placeholder="Name" {...register("name")} />
-          {errors.name && (
-            <p className={classes.error}>{errors.name.message}</p>
-          )}
-          <input placeholder="Second Name" {...register("secondName")} />
-          {errors.secondName && (
-            <p className={classes.error}>{errors.secondName.message}</p>
-          )}
-          <input placeholder="Adress and number" {...register("address")} />
-          {errors.address && (
-            <p className={classes.error}>{errors.address.message}</p>
-          )}
-          <input
-            placeholder="Shipping note (optional)"
-            {...register("shippingNote")}
-          />
-          {errors.shippingNote && (
-            <p className={classes.error}>{errors.shippingNote.message}</p>
-          )}
-          <input placeholder="Postal Code" {...register("postalCode")} />
-          {errors.postalCode && (
-            <p className={classes.error}>{errors.postalCode.message}</p>
-          )}
-          <input placeholder="City" {...register("city")} />
-          {errors.city && (
-            <p className={classes.error}>{errors.city.message}</p>
-          )}
+          <div className={classes.input_divide}>
+            <input placeholder="Name" {...register("name")} />
+            {errors.name && (
+              <p className={classes.error}>{errors.name.message}</p>
+            )}
+            <input placeholder="Second Name" {...register("secondName")} />
+            {errors.secondName && (
+              <p className={classes.error}>{errors.secondName.message}</p>
+            )}
+          </div>
+          <div className={classes.input_divide}>
+            <input placeholder="Adress and number" {...register("address")} />
+            {errors.address && (
+              <p className={classes.error}>{errors.address.message}</p>
+            )}
+            <input
+              placeholder="Shipping note (optional)"
+              {...register("shippingNote")}
+            />
+            {errors.shippingNote && (
+              <p className={classes.error}>{errors.shippingNote.message}</p>
+            )}
+          </div>
+          <div className={classes.input_divide}>
+            <input placeholder="Postal Code" {...register("postalCode")} />
+            {errors.postalCode && (
+              <p className={classes.error}>{errors.postalCode.message}</p>
+            )}
+            <input placeholder="City" {...register("city")} />
+            {errors.city && (
+              <p className={classes.error}>{errors.city.message}</p>
+            )}
+          </div>
           <Controller
             name="country"
             render={({ field: { name, value, onChange } }) => (

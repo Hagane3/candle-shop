@@ -1,2 +1,48 @@
-.root {
+@media only screen and (min-width: 64em) {
+  .root {
+    display: flex;
+    max-width: 90em;
+    margin: 0 auto;
+    gap: 5em;
+
+    .mobile_preview {
+      display: none;
+    }
+
+    .content {
+      width: 100%;
+    }
+
+    .desktop_preview {
+      width: 100%;
+      background-color: var(--bg-tertiary);
+      display: flex;
+      flex-direction: column;
+      gap: 2em;
+      justify-content: center;
+      align-items: center;
+      height: 85vh;
+
+      & > div {
+        width: 100%;
+        justify-content: space-around;
+        padding-bottom: 1em;
+        border-bottom: 1px solid rgb(217, 219, 223);
+        width: 85%;
+        margin: 0 auto;
+      }
+      .total {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: none;
+        width: 70%;
+        margin: 0 auto;
+
+        p {
+          font-weight: 500;
+        }
+      }
+    }
+  }
 }
