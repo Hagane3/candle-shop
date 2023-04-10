@@ -70,3 +70,28 @@
     }
   }
 }
+
+@media only screen and (min-width: 64em) {
+  .root {
+    max-width: 70em;
+    margin: 0 auto;
+    .prod_container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      justify-content: space-between;
+      gap: 3em;
+
+      .info_container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .btn_container {
+          width: 50%;
+          order: 2;
+        }
+      }
+    }
+  }
+}

@@ -28,7 +28,7 @@ const index = () => {
   return (
     <main className={classes.root}>
       {product && (
-        <>
+        <div className={classes.prod_container}>
           <div className={classes.product}>
             <h5>{`${product.name}®`}</h5>
             <div className={classes.product_image}>
@@ -44,44 +44,46 @@ const index = () => {
               </div>
             </div>
           </div>
-          <Subscription />
-          <div className={classes.btn_container}>
-            <Link
-              to="/cart"
-              onClick={() => {
-                dispatch(addItem({ ...product, quantity: quantity }));
-              }}
-            >
-              <Button width={100}>Add to cart</Button>
-            </Link>
+          <div className={classes.info_container}>
+            <Subscription />
+            <div className={classes.btn_container}>
+              <Link
+                to="/cart"
+                onClick={() => {
+                  dispatch(addItem({ ...product, quantity: quantity }));
+                }}
+              >
+                <Button width={100}>Add to cart</Button>
+              </Link>
+            </div>
+            <div className={classes.details_container}>
+              <p>
+                <strong>Wax:</strong>Top grade Soy wax that delivers a smoke
+                less, consistent burn
+              </p>
+              <p>
+                <strong>Fragrance:</strong>Premium quality ingredients with
+                natural essential oils
+              </p>
+              <p>
+                <strong>Burning Time:</strong>70-75 hours
+              </p>
+              <p>
+                <strong>Dimension</strong>10cm x 5cm
+              </p>
+              <p>
+                <strong>Weight:</strong>400g
+              </p>
+            </div>
+            <div className={classes.description}>
+              <h6>
+                All hand-made with natural soy wax, Candleaf is made for your
+                pleasure moments.{" "}
+              </h6>
+              <p>FREE SHIPPING</p>
+            </div>
           </div>
-          <div className={classes.details_container}>
-            <p>
-              <strong>Wax:</strong>Top grade Soy wax that delivers a smoke less,
-              consistent burn
-            </p>
-            <p>
-              <strong>Fragrance:</strong>Premium quality ingredients with
-              natural essential oils
-            </p>
-            <p>
-              <strong>Burning Time:</strong>70-75 hours
-            </p>
-            <p>
-              <strong>Dimension</strong>10cm x 5cm
-            </p>
-            <p>
-              <strong>Weight:</strong>400g
-            </p>
-          </div>
-          <div className={classes.description}>
-            <h6>
-              All hand-made with natural soy wax, Candleaf is made for your
-              pleasure moments.{" "}
-            </h6>
-            <p>FREE SHIPPING</p>
-          </div>
-        </>
+        </div>
       )}
     </main>
   );
