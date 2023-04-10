@@ -54,3 +54,27 @@
     }
   }
 }
+
+@media only screen and (min-width: 64em) {
+  .root {
+    max-width: 90em;
+    margin: 0 auto;
+
+    .cart {
+      .cart_amount {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-end;
+        gap: 2em;
+
+        .cart_subtotal {
+          display: flex;
+        }
+
+        .btn_container {
+          width: 12em;
+        }
+      }
+    }
+  }
+}

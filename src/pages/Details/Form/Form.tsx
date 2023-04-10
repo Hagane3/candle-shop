@@ -80,65 +80,88 @@ const Contact = () => {
         </div>
         <div className={classes.shipping}>
           <h2>Shipping</h2>
-          <input placeholder="Name" {...register("name")} />
-          {errors.name && (
-            <p className={classes.error}>{errors.name.message}</p>
-          )}
-          <input placeholder="Second Name" {...register("secondName")} />
-          {errors.secondName && (
-            <p className={classes.error}>{errors.secondName.message}</p>
-          )}
-          <input placeholder="Adress and number" {...register("address")} />
-          {errors.address && (
-            <p className={classes.error}>{errors.address.message}</p>
-          )}
-          <input
-            placeholder="Shipping note (optional)"
-            {...register("shippingNote")}
-          />
-          {errors.shippingNote && (
-            <p className={classes.error}>{errors.shippingNote.message}</p>
-          )}
-          <input placeholder="Postal Code" {...register("postalCode")} />
-          {errors.postalCode && (
-            <p className={classes.error}>{errors.postalCode.message}</p>
-          )}
-          <input placeholder="City" {...register("city")} />
-          {errors.city && (
-            <p className={classes.error}>{errors.city.message}</p>
-          )}
-          <Controller
-            name="country"
-            render={({ field: { name, value, onChange } }) => (
-              <CountryDropdown
-                name={name}
-                value={value}
-                onChange={onChange}
-                classes={classes.dropdown}
+          <div className={classes.input_divide}>
+            <div className={classes.input_item}>
+              <input placeholder="Name" {...register("name")} />
+              {errors.name && (
+                <p className={classes.error}>{errors.name.message}</p>
+              )}
+            </div>
+            <div className={classes.input_item}>
+              <input placeholder="Second Name" {...register("secondName")} />
+              {errors.secondName && (
+                <p className={classes.error}>{errors.secondName.message}</p>
+              )}
+            </div>
+          </div>
+          <div className={classes.input_divide}>
+            <div className={classes.input_item}>
+              <input placeholder="Adress and number" {...register("address")} />
+              {errors.address && (
+                <p className={classes.error}>{errors.address.message}</p>
+              )}
+            </div>
+            <div className={classes.input_item}>
+              <input
+                placeholder="Shipping note (optional)"
+                {...register("shippingNote")}
               />
+              {errors.shippingNote && (
+                <p className={classes.error}>{errors.shippingNote.message}</p>
+              )}
+            </div>
+          </div>
+
+          <div className={classes.input_divide}>
+            <div className={classes.input_item}>
+              <input placeholder="Postal Code" {...register("postalCode")} />
+              {errors.postalCode && (
+                <p className={classes.error}>{errors.postalCode.message}</p>
+              )}
+            </div>
+            <div className={classes.input_item}>
+              <input placeholder="City" {...register("city")} />
+              {errors.city && (
+                <p className={classes.error}>{errors.city.message}</p>
+              )}
+            </div>
+          </div>
+          <div className={classes.input_item}>
+            <Controller
+              name="country"
+              render={({ field: { name, value, onChange } }) => (
+                <CountryDropdown
+                  name={name}
+                  value={value}
+                  onChange={onChange}
+                  classes={classes.dropdown}
+                />
+              )}
+              control={control}
+            />
+            {errors.country && (
+              <p className={classes.error}>{errors.country.message}</p>
             )}
-            control={control}
-          />
-          {errors.country && (
-            <p className={classes.error}>{errors.country.message}</p>
+          </div>
+          <div className={classes.input_item}>
+            <Controller
+              name="region"
+              render={({ field: { name, value, onChange } }) => (
+                <RegionDropdown
+                  country={watch("country")}
+                  name={name}
+                  value={value}
+                  onChange={onChange}
+                  classes={classes.dropdown}
+                />
+              )}
+              control={control}
+            />
+          </div>
+          {errors.region && (
+            <p className={classes.error}>{errors.region.message}</p>
           )}
-          <Controller
-            name="region"
-            render={({ field: { name, value, onChange } }) => (
-              <RegionDropdown
-                country={watch("country")}
-                name={name}
-                value={value}
-                onChange={onChange}
-                classes={classes.dropdown}
-              />
-            )}
-            control={control}
-          />
         </div>
-        {errors.region && (
-          <p className={classes.error}>{errors.region.message}</p>
-        )}
         <div
           className={classes.btn_container}
           onClick={() => console.log(errors)}

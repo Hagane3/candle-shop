@@ -60,6 +60,17 @@
     gap: 0.8em;
     margin-top: 2em;
 
+    .input_divide {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8em;
+      .input_item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2em;
+      }
+    }
+
     .dropdown {
       width: 100%;
       padding: 0.8em 1.2em;
@@ -78,5 +89,20 @@
     color: var(--text-error);
     font-size: 0.8rem;
     margin-top: 0.5em;
+  }
+}
+
+@media only screen and (min-width: 64em) {
+  .root {
+    padding-top: 0;
+
+    .shipping {
+      .input_divide {
+        flex-direction: row;
+        .input_item {
+          width: 50%;
+        }
+      }
+    }
   }
 }

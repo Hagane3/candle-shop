@@ -1,22 +1,15 @@
 import { Link, useNavigate } from "react-router-dom";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 
 import classes from "./index.module.scss";
 import Button from "../../components/UI/Button/Button";
 import CartItem from "./CartItem/CartItem";
-import { useEffect } from "react";
-import { calcTotalAmount } from "../../store/cart-slice";
 
 const index = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const { cart, totalAmount } = useSelector((state: RootState) => state.cart);
-
-  useEffect(() => {
-    dispatch(calcTotalAmount());
-  }, [cart]);
 
   const goToCheckoutHandler = () => {
     navigate("/order/details");
@@ -40,16 +33,22 @@ const index = () => {
             return <CartItem key={item.id} product={item} />;
           })}
         </div>
-        <div className={classes.cart_subtotal}>
-          <p>Sub-total</p>
-          <p>{`$ ${totalAmount}`}</p>
+        <div className={classes.cart_amount}>
+          <div className={classes.cart_amount_container}>
+            <div className={classes.cart_subtotal}>
+              <p>Sub-total</p>
+              <p>{`$ ${totalAmount}`}</p>
+            </div>
+            <p className={classes.cart_hint}>
+              Tax and shipping cost will be calculated later
+            </p>
+          </div>
+          <div className={classes.btn_container}>
+            <Button width={100} redirect={goToCheckoutHandler}>
+              Checkout
+            </Button>
+          </div>
         </div>
-        <p className={classes.cart_hint}>
-          Tax and shipping cost will be calculated later
-        </p>
-        <Button width={100} redirect={goToCheckoutHandler}>
-          Checkout
-        </Button>
       </div>
     </main>
   );

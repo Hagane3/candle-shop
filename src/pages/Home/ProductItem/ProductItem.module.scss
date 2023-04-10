@@ -37,3 +37,13 @@
     }
   }
 }
+
+@media only screen and (min-width: 64em) {
+  .root {
+    overflow: visible;
+    height: auto;
+    .image {
+      transform: translateY(0);
+    }
+  }
+}

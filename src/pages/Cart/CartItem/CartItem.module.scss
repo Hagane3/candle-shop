@@ -1,5 +1,6 @@
 .root {
   display: flex;
+  justify-content: space-between;
   gap: 1em;
 
   .image_container {
@@ -13,30 +14,46 @@
     }
   }
 
-  .item_container {
-    h3 {
-      font-size: 1.1rem;
+  .details {
+    display: flex;
+
+    .item_container {
+      h3 {
+        font-size: 1.1rem;
+      }
+
+      .remove {
+        color: var(--text-tertiary);
+        text-decoration: underline;
+        font-size: 1.1rem;
+        margin-top: 1.5em;
+      }
     }
 
-    .remove {
-      color: var(--text-tertiary);
-      text-decoration: underline;
-      font-size: 1.1rem;
-      margin-top: 1.5em;
+    .price_container {
+      text-align: right;
+
+      .price {
+        margin-bottom: 3em;
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+
+      .quantity_box {
+        font-size: 0.8rem;
+      }
     }
   }
+}
 
-  .price_container {
-    text-align: right;
-
-    .price {
-      margin-bottom: 3em;
-      font-size: 1.2rem;
-      font-weight: 500;
+@media only screen and (min-width: 64em) {
+  .root {
+    .image_container {
+      width: 10em;
     }
 
-    .quantity_box {
-      font-size: 0.8rem;
+    .details {
+      gap: 5em;
     }
   }
 }

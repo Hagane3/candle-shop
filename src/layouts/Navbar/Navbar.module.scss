@@ -2,6 +2,7 @@
   position: relative;
   width: 100%;
   z-index: 999;
+  background-color: var(--bg-primary);
 
   .wrapper {
     display: flex;
@@ -42,16 +43,59 @@
     &.active {
       transform: translateY(100%);
     }
+  }
 
-    ul {
-      list-style: none;
+  .menu_desktop {
+    display: none;
+  }
+
+  .menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25em;
+
+    li {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 64em) {
+  .root {
+    .wrapper {
+      margin: 0 auto;
+      max-width: 70em;
       display: flex;
-      flex-direction: column;
-      gap: 1.25em;
+      justify-content: space-between;
 
-      li {
-        font-size: 1.5rem;
+      .menu_btn {
+        display: none;
       }
+
+      .logo {
+        position: relative;
+        left: 0;
+        transform: none;
+      }
+
+      .menu_desktop {
+        display: block;
+
+        ul {
+          display: flex;
+          gap: 1.5em;
+          flex-direction: row;
+
+          li {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+
+    .menu_list {
+      display: none;
     }
   }
 }

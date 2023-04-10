@@ -13,7 +13,9 @@ const index = () => {
 
   return (
     <div className={classes.root}>
-      <SummaryCart />
+      <div className={classes.mobile}>
+        <SummaryCart />
+      </div>
       <Breadcrumbs />
       {isLoading ? (
         <Spinner />

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import classes from "./QuantityBoxCart.module.scss";
+import { calcTotalAmount } from "../../../store/cart-slice";
 
 import {
   decreaseProductQuantity,
@@ -12,14 +13,12 @@ type QuantityBoxProps = {
 };
 
 const QuantityBox = ({ prodId }: QuantityBoxProps) => {
-  // const [quantity, setQuantity] = useState(1);
   const { cart } = useSelector((state: any) => state.cart);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   const item = cart.find((item: any) => item.id === prodId);
-  //   setQuantity(item.quantity);
-  // }, []);
+  useEffect(() => {
+    dispatch(calcTotalAmount());
+  }, [cart]);
 
   const productQuantity = cart.find((item: any) => item.id === prodId).quantity;
 
