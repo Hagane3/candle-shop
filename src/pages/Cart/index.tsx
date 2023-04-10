@@ -1,22 +1,15 @@
 import { Link, useNavigate } from "react-router-dom";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 
 import classes from "./index.module.scss";
 import Button from "../../components/UI/Button/Button";
 import CartItem from "./CartItem/CartItem";
-import { useEffect } from "react";
-import { calcTotalAmount } from "../../store/cart-slice";
 
 const index = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const { cart, totalAmount } = useSelector((state: RootState) => state.cart);
-
-  useEffect(() => {
-    dispatch(calcTotalAmount());
-  }, [cart]);
 
   const goToCheckoutHandler = () => {
     navigate("/order/details");
