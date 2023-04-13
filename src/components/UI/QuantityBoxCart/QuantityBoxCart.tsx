@@ -36,9 +36,13 @@ const QuantityBox = ({ prodId }: QuantityBoxProps) => {
     <div className={classes.root}>
       <p>Quantity</p>
       <div className={classes.quantity}>
-        <button onClick={increaseQuantity}>+</button>
+        <button onClick={decreaseQuantity} className={classes.decrease}>
+          -
+        </button>
         <span>{productQuantity}</span>
-        <button onClick={decreaseQuantity}>-</button>
+        <button onClick={increaseQuantity} className={classes.increase}>
+          +
+        </button>
       </div>
     </div>
   );
