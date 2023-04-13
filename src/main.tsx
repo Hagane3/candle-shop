@@ -15,6 +15,8 @@ import Details from "./pages/Details/index";
 import Shipping from "./pages/Shipping/index";
 import Payment from "./pages/Payment/index";
 import Products from "./pages/Products/index";
+import Contact from "./pages/Contact/index";
+import About from "./pages/About/index";
 
 import App from "./App";
 import "./index.scss";
@@ -35,6 +37,14 @@ const router = createBrowserRouter([
       {
         path: "/products/:id",
         element: <SingleProduct />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
       },
       {
         path: "/cart",
