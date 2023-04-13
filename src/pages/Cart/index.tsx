@@ -10,7 +10,7 @@ import CartItem from "./CartItem/CartItem";
 const index = () => {
   const navigate = useNavigate();
   const { cart, totalAmount } = useSelector((state: RootState) => state.cart);
-
+  console.log(cart);
   const goToCheckoutHandler = () => {
     navigate("/order/details");
   };

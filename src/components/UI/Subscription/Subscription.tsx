@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import classes from "./Subscription.module.scss";
 
 type Props = {
@@ -6,16 +6,21 @@ type Props = {
 };
 
 const Subscription = ({ setSubscription }: Props) => {
+  const [isSubscription, setIsSubscription] = useState(false);
   const [subscriptionTime, setSubscriptionTime] = useState("1 week");
 
-  const setSubscriptionHandler = (e: React.ChangeEvent<HTMLFormElement>) => {
-    if (e.target.value === "One time purchase") {
-      setSubscription("One time purchase");
-    } else if (e.target.value === "Subscription") {
-      setSubscription(`Subscription - ${subscriptionTime}`);
-    }
+  useEffect(() => {
+    isSubscription
+      ? setSubscription(`Sub & Delivery every ${subscriptionTime}`)
+      : setSubscription("One time purchase");
+  }, [isSubscription, subscriptionTime]);
 
-    return;
+  const setIsSubscriptionHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.value === "Subscription") {
+      setIsSubscription(true);
+    } else {
+      setIsSubscription(false);
+    }
   };
 
   const setSubscriptionTimeHandler = (
@@ -26,13 +31,14 @@ const Subscription = ({ setSubscription }: Props) => {
 
   return (
     <div className={classes.root}>
-      <form onChange={setSubscriptionHandler}>
+      <form>
         <div className={classes.one_time}>
           <input
             type="radio"
             id="onetime"
             name="subscription"
             value="One time purchase"
+            onChange={setIsSubscriptionHandler}
             defaultChecked
           />
           <label htmlFor="onetime">One time purchase</label>
@@ -44,13 +50,11 @@ const Subscription = ({ setSubscription }: Props) => {
               id="subscription"
               name="subscription"
               value="Subscription"
+              onChange={setIsSubscriptionHandler}
             />
             <label htmlFor="subscription">
               <span>Sub & Delivery every</span>
-              <select
-                value={subscriptionTime}
-                onChange={setSubscriptionTimeHandler}
-              >
+              <select onChange={setSubscriptionTimeHandler}>
                 <option value="1 week">1 week</option>
                 <option value="2 weeks">2 weeks</option>
                 <option value="3 weeks">3 weeks</option>
