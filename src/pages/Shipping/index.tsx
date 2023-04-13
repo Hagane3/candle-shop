@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useForm, SubmitHandler } from "react-hook-form";
 
@@ -22,7 +22,11 @@ const index = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { register, handleSubmit } = useForm<Inputs>();
+  const { register, handleSubmit } = useForm<Inputs>({
+    defaultValues: {
+      shipping: order.shipping,
+    },
+  });
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     dispatch(addToOrder(data));

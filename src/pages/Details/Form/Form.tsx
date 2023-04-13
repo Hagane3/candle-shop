@@ -30,6 +30,7 @@ const Contact = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { totalAmount } = useSelector((state: any) => state.cart);
+  const { order } = useSelector((state: any) => state.order);
 
   const schema = yup.object().shape({
     email: yup.string().email().required(),
@@ -52,6 +53,18 @@ const Contact = () => {
     formState: { errors },
   } = useForm<Inputs>({
     resolver: yupResolver(schema),
+    defaultValues: {
+      email: order.email,
+      discount: order.discount,
+      name: order.name,
+      secondName: order.secondName,
+      address: order.address,
+      shippingNote: order.shippingNote,
+      postalCode: order.postalCode,
+      city: order.city,
+      country: order.country,
+      region: order.region,
+    },
   });
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     dispatch(addToOrder({ ...data, totalAmount }));
