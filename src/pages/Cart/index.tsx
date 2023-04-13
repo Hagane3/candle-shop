@@ -19,7 +19,7 @@ const index = () => {
     <main className={classes.root}>
       <header>
         <h1>Your cart items</h1>
-        <Link to="/" className={classes.back_btn}>
+        <Link to="/products" className={classes.back_btn}>
           Back to shopping
         </Link>
       </header>
