@@ -20,6 +20,8 @@ const index = () => {
   const dispatch = useDispatch();
   const [product, setProduct] = useState<Product>();
   const [quantity, setQuantity] = useState(1);
+  const [subscription, setSubscription] = useState("One time purchase");
+
   const { allProducts } = useSelector((state: RootState) => state.products);
   const { id } = useParams();
 
@@ -51,11 +53,17 @@ const index = () => {
             </div>
           </div>
           <div className={classes.info_container}>
-            <Subscription />
+            <Subscription setSubscription={setSubscription} />
             <div className={classes.btn_container}>
               <div
                 onClick={() => {
-                  dispatch(addItem({ ...product, quantity: quantity }));
+                  dispatch(
+                    addItem({
+                      ...product,
+                      quantity: quantity,
+                      subscription: subscription,
+                    })
+                  );
                 }}
               >
                 <Button width={100} redirect={goToCartHandler}>

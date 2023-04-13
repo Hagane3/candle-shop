@@ -6,6 +6,7 @@ export type CartItem = {
   price: number;
   quantity: number;
   image: string;
+  subscription: string;
 };
 
 export type Cart = {
@@ -32,9 +33,11 @@ const cartSlice = createSlice({
           price: newItem.price,
           quantity: newItem.quantity,
           image: newItem.image,
+          subscription: newItem.subscription,
         });
       } else {
         existingItem.quantity += newItem.quantity;
+        existingItem.subscription = newItem.subscription;
       }
     },
     calcTotalAmount(state) {
