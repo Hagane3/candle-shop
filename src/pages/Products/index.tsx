@@ -1,5 +1,4 @@
-import React from "react";
-import Products from "../Home/Products/Products";
+import Products from "../../components/Products/Products";
 
 const index = () => {
   return <Products />;

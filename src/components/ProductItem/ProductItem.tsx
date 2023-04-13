@@ -1,6 +1,4 @@
-import React from "react";
 import classes from "./ProductItem.module.scss";
-import image1 from "../../../assets/img/candles/spiced-mint.png";
 
 type Props = {
   name: string;

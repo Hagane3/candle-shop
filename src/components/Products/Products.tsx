@@ -1,14 +1,13 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Button from "../../../components/UI/Button/Button";
+import Button from "../UI/Button/Button";
 import ProductItem from "../ProductItem/ProductItem";
 
 import classes from "./Products.module.scss";
 import { useSelector, useDispatch } from "react-redux";
-import { setProducts, setIsLoading } from "../../../store/products-slice";
+import { setProducts, setIsLoading, Product } from "../../store/products-slice";
 
-import { Product } from "../../../store/products-slice";
-import { RootState } from "../../../store";
+import { RootState } from "../../store/index";
 
 const Products = () => {
   const navigate = useNavigate();
