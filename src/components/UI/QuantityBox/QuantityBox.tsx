@@ -16,9 +16,13 @@ const QuantityBox = ({ setQuantityHandler, quantity }: any) => {
     <div className={classes.root}>
       <p>Quantity</p>
       <div className={classes.quantity}>
-        <button onClick={increaseQuantity}>+</button>
+        <button onClick={decreaseQuantity} className={classes.decrease}>
+          -
+        </button>
         <span>{quantity}</span>
-        <button onClick={decreaseQuantity}>-</button>
+        <button onClick={increaseQuantity} className={classes.increase}>
+          +
+        </button>
       </div>
     </div>
   );

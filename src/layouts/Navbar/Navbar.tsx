@@ -28,9 +28,15 @@ const Navbar = () => {
         </div>
         <div className={classes.menu_desktop}>
           <ul className={classes.menu}>
-            <li>Discovery</li>
-            <li>About</li>
-            <li>Contact Us</li>
+            <li>
+              <Link to="/products">Products</Link>
+            </li>
+            <li>
+              <Link to="/about">About us</Link>
+            </li>
+            <li>
+              <Link to="/contact">Contact us</Link>
+            </li>
           </ul>
         </div>
         <div className={classes.user_container}>
@@ -44,9 +50,15 @@ const Navbar = () => {
         className={`${classes.menu_list} ${isMenuOpened ? classes.active : ""}`}
       >
         <ul className={classes.menu}>
-          <li>Discovery</li>
-          <li>About</li>
-          <li>Contact Us</li>
+          <li>
+            <Link to="/products">Products</Link>
+          </li>
+          <li>
+            <Link to="/about">About us</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact us</Link>
+          </li>
         </ul>
       </div>
     </nav>

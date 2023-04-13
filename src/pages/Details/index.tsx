@@ -8,6 +8,9 @@ import CartItem from "../Cart/CartItem/CartItem";
 
 const index = () => {
   const { cart, totalAmount } = useSelector((state: any) => state.cart);
+  const state = useSelector((state: any) => state);
+
+  console.log(state, cart);
   return (
     <main className={classes.root}>
       <div className={classes.mobile_preview}>

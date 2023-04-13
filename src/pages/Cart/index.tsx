@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { addOrder } from "../../store/order-slice";
 import { RootState } from "../../store";
 
 import classes from "./index.module.scss";
@@ -9,17 +10,21 @@ import CartItem from "./CartItem/CartItem";
 
 const index = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { cart, totalAmount } = useSelector((state: RootState) => state.cart);
-
   const goToCheckoutHandler = () => {
     navigate("/order/details");
+  };
+
+  const addProductsToOrderHandler = () => {
+    dispatch(addOrder({ products: cart, totalAmount: totalAmount }));
   };
 
   return (
     <main className={classes.root}>
       <header>
         <h1>Your cart items</h1>
-        <Link to="/" className={classes.back_btn}>
+        <Link to="/products" className={classes.back_btn}>
           Back to shopping
         </Link>
       </header>
@@ -43,7 +48,10 @@ const index = () => {
               Tax and shipping cost will be calculated later
             </p>
           </div>
-          <div className={classes.btn_container}>
+          <div
+            className={classes.btn_container}
+            onClick={addProductsToOrderHandler}
+          >
             <Button width={100} redirect={goToCheckoutHandler}>
               Checkout
             </Button>

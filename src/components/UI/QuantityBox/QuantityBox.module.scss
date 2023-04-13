@@ -24,15 +24,18 @@
 
     button {
       font-size: 1.5em;
-
-      &:first-child {
-        color: var(--text-tertiary);
+      &:hover {
+        cursor: pointer;
       }
+    }
 
-      &:last-child {
-        color: var(--text-secondary);
-        font-size: 2em;
-      }
+    .decrease {
+      color: var(--text-secondary);
+      font-size: 2em;
+    }
+
+    .increase {
+      color: var(--text-tertiary);
     }
   }
 }

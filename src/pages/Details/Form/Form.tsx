@@ -3,8 +3,8 @@ import classes from "./Form.module.scss";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 
-import { useDispatch } from "react-redux";
-import { addOrder } from "../../../store/order-slice";
+import { useDispatch, useSelector } from "react-redux";
+import { addToOrder } from "../../../store/order-slice";
 
 import * as yup from "yup";
 
@@ -29,6 +29,7 @@ type Inputs = {
 const Contact = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { totalAmount } = useSelector((state: any) => state.cart);
 
   const schema = yup.object().shape({
     email: yup.string().email().required(),
@@ -53,7 +54,7 @@ const Contact = () => {
     resolver: yupResolver(schema),
   });
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    dispatch(addOrder(data));
+    dispatch(addToOrder({ ...data, totalAmount }));
     navigate("/order/shipping");
   };
 
@@ -162,10 +163,7 @@ const Contact = () => {
             <p className={classes.error}>{errors.region.message}</p>
           )}
         </div>
-        <div
-          className={classes.btn_container}
-          onClick={() => console.log(errors)}
-        >
+        <div className={classes.btn_container}>
           <Button width={100} submit={true}>
             Go to shipping
           </Button>

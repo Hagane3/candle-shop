@@ -6,6 +6,7 @@ export type CartItem = {
   price: number;
   quantity: number;
   image: string;
+  subscription: string;
 };
 
 export type Cart = {
@@ -32,9 +33,11 @@ const cartSlice = createSlice({
           price: newItem.price,
           quantity: newItem.quantity,
           image: newItem.image,
+          subscription: newItem.subscription,
         });
       } else {
         existingItem.quantity += newItem.quantity;
+        existingItem.subscription = newItem.subscription;
       }
     },
     calcTotalAmount(state) {
@@ -68,6 +71,11 @@ const cartSlice = createSlice({
     clearCart(state) {
       state.cart = [];
     },
+    shippingPrice(state, action) {
+      const shippingPrice = action.payload;
+      const totalPrice = (state.totalAmount += shippingPrice);
+      state.totalAmount = totalPrice.toFixed(2);
+    },
   },
 });
 
@@ -78,6 +86,7 @@ export const {
   increaseProductQuantity,
   removeFromCart,
   clearCart,
+  shippingPrice,
 } = cartSlice.actions;
 
 export default cartSlice;

@@ -1,7 +1,8 @@
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useForm, SubmitHandler } from "react-hook-form";
 
-import { addToOrder } from "../../store/order-slice";
+import { addToOrder, calcTotalAmount } from "../../store/order-slice";
 
 import classes from "./index.module.scss";
 import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
@@ -15,6 +16,7 @@ type Inputs = {
 };
 
 const index = () => {
+  const [shippingMethod, setShippingMethod] = useState("Standard Shipping");
   const { order } = useSelector((state: any) => state.order);
   const { cart, totalAmount } = useSelector((state: any) => state.cart);
   const navigate = useNavigate();
@@ -24,8 +26,15 @@ const index = () => {
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     dispatch(addToOrder(data));
-    console.log(data);
+    shippingMethod === "Standard Shipping"
+      ? dispatch(calcTotalAmount(0))
+      : dispatch(calcTotalAmount(10));
+    useDispatch;
     navigate("/order/payment");
+  };
+
+  const setShippingMethodHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setShippingMethod(e.target.value);
   };
 
   return (
@@ -57,7 +66,7 @@ const index = () => {
                   id="standard"
                   name="shipping"
                   value="Standard Shipping"
-                  checked
+                  onChange={setShippingMethodHandler}
                 />
                 <label htmlFor="standard">Standard Shipping</label>
               </div>
@@ -72,6 +81,7 @@ const index = () => {
                   id="priority"
                   name="shipping"
                   value="Priority Shipping"
+                  onChange={setShippingMethodHandler}
                 />
                 <label htmlFor="priority">Priority Shipping</label>
               </div>

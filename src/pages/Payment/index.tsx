@@ -7,9 +7,15 @@ import PaymentForm from "./PaymentForm/PaymentForm";
 import PaymentConfirmed from "./PaymentConfirmed/PaymentConfirmed";
 import Spinner from "../../components/UI/Spinner/Spinner";
 
+import { useSelector } from "react-redux";
+
 const index = () => {
   const [isPaymentConfirmed, setIsPaymentConfirmed] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const { order } = useSelector((state: any) => state.order);
+  const state = useSelector((state: any) => state);
+
+  console.log(state);
 
   return (
     <div className={classes.root}>

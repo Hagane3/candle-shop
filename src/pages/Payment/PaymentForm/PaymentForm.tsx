@@ -20,6 +20,7 @@ type Props = {
 };
 
 const PaymentForm = ({ orderHandler, loadingHandler }: Props) => {
+  const { order } = useSelector((state: any) => state.order);
   const dispatch = useDispatch();
 
   const schema = yup.object().shape({
@@ -46,8 +47,6 @@ const PaymentForm = ({ orderHandler, loadingHandler }: Props) => {
     loadingHandler(false);
     orderHandler(true);
   };
-
-  const { order } = useSelector((state: any) => state.order);
 
   return (
     <div className={classes.root}>
@@ -110,7 +109,7 @@ const PaymentForm = ({ orderHandler, loadingHandler }: Props) => {
               value="The same as shipping address"
               checked
             />
-            <label htmlFor="shipping">Priority Shipping</label>
+            <label htmlFor="shipping">{order.shipping}</label>
           </div>
         </div>
         <div className={classes.btn_container}>

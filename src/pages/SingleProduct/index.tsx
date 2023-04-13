@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import { RootState } from "../../store";
 import { Product } from "../../store/products-slice";
@@ -15,15 +16,22 @@ import Subscription from "../../components/UI/Subscription/Subscription";
 import Button from "../../components/UI/Button/Button";
 
 const index = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [product, setProduct] = useState<Product>();
   const [quantity, setQuantity] = useState(1);
+  const [subscription, setSubscription] = useState("One time purchase");
+
   const { allProducts } = useSelector((state: RootState) => state.products);
   const { id } = useParams();
 
   useEffect(() => {
     setProduct(allProducts.find((product: Product) => product.id === id));
   }, [id]);
+
+  const goToCartHandler = () => {
+    navigate("/cart");
+  };
 
   return (
     <main className={classes.root}>
@@ -45,16 +53,23 @@ const index = () => {
             </div>
           </div>
           <div className={classes.info_container}>
-            <Subscription />
+            <Subscription setSubscription={setSubscription} />
             <div className={classes.btn_container}>
-              <Link
-                to="/cart"
+              <div
                 onClick={() => {
-                  dispatch(addItem({ ...product, quantity: quantity }));
+                  dispatch(
+                    addItem({
+                      ...product,
+                      quantity: quantity,
+                      subscription: subscription,
+                    })
+                  );
                 }}
               >
-                <Button width={100}>Add to cart</Button>
-              </Link>
+                <Button width={100} redirect={goToCartHandler}>
+                  Add to cart
+                </Button>
+              </div>
             </div>
             <div className={classes.details_container}>
               <p>

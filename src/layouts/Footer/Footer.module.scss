@@ -50,15 +50,14 @@
     }
   }
   .social_media {
-    background-color: var(--bg-tertiary);
     display: flex;
     justify-content: center;
     gap: 2em;
     padding: 0.5em 0;
 
     a img {
-      width: 1.5em;
-      height: 1.5em;
+      width: 1.2em;
+      height: 1.2em;
     }
   }
 }

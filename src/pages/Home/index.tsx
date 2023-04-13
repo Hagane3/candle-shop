@@ -2,7 +2,7 @@ import React from "react";
 import Benefits from "./Benefits/Benefits";
 import Header from "./Header/Header";
 import classes from "./index.module.scss";
-import Products from "./Products/Products";
+import Products from "../../components/Products/Products";
 import Testimonials from "./Testimonials/Testimonials";
 
 const index = () => {
