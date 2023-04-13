@@ -15,6 +15,17 @@ const Footer = () => {
           <div className={classes.logo_container}>
             <Logo type="white" />
             <p>Your natural candle made for your home and for your wellness</p>
+            <div className={classes.social_media}>
+              <a href="#">
+                <img src={facebook} alt="facebook" />
+              </a>
+              <a href="#">
+                <img src={instagram} alt="instagram" />
+              </a>
+              <a href="#">
+                <img src={youtube} alt="youtube" />
+              </a>
+            </div>
           </div>
           <div className={classes.footer_nav}>
             <div className={classes.footer_nav_item}>
@@ -61,17 +72,6 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div className={classes.social_media}>
-        <a href="#">
-          <img src={facebook} alt="facebook" />
-        </a>
-        <a href="#">
-          <img src={instagram} alt="instagram" />
-        </a>
-        <a href="#">
-          <img src={youtube} alt="youtube" />
-        </a>
       </div>
     </footer>
   );
