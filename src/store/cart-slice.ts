@@ -71,6 +71,11 @@ const cartSlice = createSlice({
     clearCart(state) {
       state.cart = [];
     },
+    shippingPrice(state, action) {
+      const shippingPrice = action.payload;
+      const totalPrice = (state.totalAmount += shippingPrice);
+      state.totalAmount = totalPrice.toFixed(2);
+    },
   },
 });
 
@@ -81,6 +86,7 @@ export const {
   increaseProductQuantity,
   removeFromCart,
   clearCart,
+  shippingPrice,
 } = cartSlice.actions;
 
 export default cartSlice;

@@ -6,7 +6,6 @@ import cartIcon from "../../../assets/icon/cartIcon.svg";
 
 const CartIcon = () => {
   const { cart } = useSelector((state: any) => state.cart);
-  console.log(cart.reduce((acc: number, item: any) => acc + item.quantity, 0));
 
   const cartQuantity = cart.reduce(
     (acc: number, item: any) => acc + item.quantity,
