@@ -7,10 +7,8 @@ import SummaryCart from "../../components/SummaryCart/SummaryCart";
 import CartItem from "../Cart/CartItem/CartItem";
 
 const index = () => {
-  const { cart, totalAmount } = useSelector((state: any) => state.cart);
-  const state = useSelector((state: any) => state);
-
-  console.log(state, cart);
+  const { cart } = useSelector((state: any) => state.cart);
+  const { order } = useSelector((state: any) => state.order);
   return (
     <main className={classes.root}>
       <div className={classes.mobile_preview}>
@@ -22,11 +20,11 @@ const index = () => {
       </div>
       <div className={classes.desktop_preview}>
         {cart.map((item: any) => (
-          <CartItem key={item.id} product={item} />
+          <CartItem key={item.id} product={item} type="order" />
         ))}
         <div className={classes.total}>
           <p>Total:</p>
-          <span>${totalAmount}</span>
+          <span>${order.totalAmount}</span>
         </div>
       </div>
     </main>
