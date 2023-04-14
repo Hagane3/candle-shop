@@ -44,7 +44,7 @@ const PaymentForm = ({ orderHandler, loadingHandler }: Props) => {
     dispatch(
       addToOrder({ payment: { ...data }, id: (Math.random() * 100).toFixed() })
     );
-    loadingHandler(false);
+    setTimeout(() => loadingHandler(false), 3000);
     orderHandler(true);
   };
 
