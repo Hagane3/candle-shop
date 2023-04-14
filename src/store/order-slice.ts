@@ -1,7 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { CartItem } from "./cart-slice";
 
 export type Order = {
-  order: {};
+  order: {
+    totalAmount: number;
+    products: CartItem[];
+  };
 };
 
 const orderSlice = createSlice({
@@ -9,6 +13,7 @@ const orderSlice = createSlice({
   initialState: {
     order: {
       totalAmount: 0,
+      products: [] as CartItem[],
     },
   },
   reducers: {
@@ -21,9 +26,37 @@ const orderSlice = createSlice({
     calcTotalAmount(state, action) {
       state.order.totalAmount += action.payload;
     },
+    increaseOrderProductQuantity(state, action) {
+      const id = action.payload;
+      const existingItem = state.order.products.find((item) => item.id === id);
+      if (existingItem) {
+        existingItem.quantity++;
+      }
+    },
+    decreaseOrderProductQuantity(state, action) {
+      const id = action.payload;
+      const existingItem = state.order.products.find((item) => item.id === id);
+      if (existingItem) {
+        existingItem.quantity--;
+      }
+    },
+    calcOrderAmount(state) {
+      state.order.totalAmount = parseFloat(
+        state.order.products
+          .reduce((acc, item) => acc + item.price * item.quantity, 0)
+          .toFixed(2)
+      );
+    },
   },
 });
 
-export const { addOrder, addToOrder, calcTotalAmount } = orderSlice.actions;
+export const {
+  addOrder,
+  addToOrder,
+  calcTotalAmount,
+  increaseOrderProductQuantity,
+  decreaseOrderProductQuantity,
+  calcOrderAmount,
+} = orderSlice.actions;
 
 export default orderSlice;

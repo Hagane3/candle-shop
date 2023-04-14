@@ -1,13 +1,14 @@
 import classes from "./CartItem.module.scss";
-import QuantityBoxCart from "../../../components/UI/QuantityBoxCart/QuantityBoxCart";
+import QuantityBoxCartOrder from "../../../components/UI/QuantityBoxCartOrder/QuantityBoxCartOrder";
 import { useDispatch } from "react-redux";
-import { removeFromCart } from "../../../store/cart-slice";
+import { removeFromCart, calcTotalAmount } from "../../../store/cart-slice";
 
-const CartItem = ({ product }: any) => {
+const CartItem = ({ product, type }: any) => {
   const dispatch = useDispatch();
 
   const removeFromCartHandler = () => {
     dispatch(removeFromCart(product.id));
+    dispatch(calcTotalAmount());
   };
 
   return (
@@ -26,7 +27,7 @@ const CartItem = ({ product }: any) => {
         <div className={classes.price_container}>
           <p className={classes.price}>{`$${product.price}`}</p>
           <div className={classes.quantity_box}>
-            <QuantityBoxCart prodId={product.id} />
+            <QuantityBoxCartOrder prodId={product.id} type={type} />
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useForm, SubmitHandler } from "react-hook-form";
 
@@ -18,11 +18,15 @@ type Inputs = {
 const index = () => {
   const [shippingMethod, setShippingMethod] = useState("Standard Shipping");
   const { order } = useSelector((state: any) => state.order);
-  const { cart, totalAmount } = useSelector((state: any) => state.cart);
+  const { cart } = useSelector((state: any) => state.cart);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { register, handleSubmit } = useForm<Inputs>();
+  const { register, handleSubmit } = useForm<Inputs>({
+    defaultValues: {
+      shipping: order.shipping,
+    },
+  });
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     dispatch(addToOrder(data));
@@ -97,11 +101,11 @@ const index = () => {
       </div>
       <div className={classes.desktop_preview}>
         {cart.map((item: any) => (
-          <CartItem key={item.id} product={item} />
+          <CartItem key={item.id} product={item} type="order" />
         ))}
         <div className={classes.total}>
           <p>Total:</p>
-          <span>${totalAmount}</span>
+          <span>${order.totalAmount}</span>
         </div>
       </div>
     </main>

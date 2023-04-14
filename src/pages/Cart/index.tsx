@@ -35,7 +35,7 @@ const index = () => {
         </div>
         <div className={classes.cart_items}>
           {cart.map((item) => {
-            return <CartItem key={item.id} product={item} />;
+            return <CartItem key={item.id} product={item} type="cart" />;
           })}
         </div>
         <div className={classes.cart_amount}>
