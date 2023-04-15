@@ -3,7 +3,18 @@ import QuantityBoxCartOrder from "../../../components/UI/QuantityBoxCartOrder/Qu
 import { useDispatch } from "react-redux";
 import { removeFromCart, calcTotalAmount } from "../../../store/cart-slice";
 
-const CartItem = ({ product, type }: any) => {
+type Props = {
+  product: {
+    id: number;
+    name: string;
+    image: string;
+    price: number;
+    subscription: string;
+  };
+  type: string;
+};
+
+const CartItem = ({ product, type }: Props) => {
   const dispatch = useDispatch();
 
   const removeFromCartHandler = () => {
