@@ -2,15 +2,10 @@ import classes from "./CartItem.module.scss";
 import QuantityBoxCartOrder from "../../../components/UI/QuantityBoxCartOrder/QuantityBoxCartOrder";
 import { useDispatch } from "react-redux";
 import { removeFromCart, calcTotalAmount } from "../../../store/cart-slice";
+import { CartItem as product } from "../../../store/cart-slice";
 
 type Props = {
-  product: {
-    id: number;
-    name: string;
-    image: string;
-    price: number;
-    subscription: string;
-  };
+  product: product;
   type: string;
 };
 
