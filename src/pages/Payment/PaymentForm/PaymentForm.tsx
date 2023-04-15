@@ -24,9 +24,15 @@ const PaymentForm = ({ orderHandler, loadingHandler }: Props) => {
   const dispatch = useDispatch();
 
   const schema = yup.object().shape({
-    cardNumber: yup.string().required(),
+    cardNumber: yup.number().required(),
     holderName: yup.string().required(),
-    expiration: yup.string().required(),
+    expiration: yup
+      .string()
+      .required()
+      .matches(
+        /^(0[1-9]|1[0-2])\/[0-9]{2}$/,
+        "Expiration date must be in the format MM/YY"
+      ),
     ccv: yup
       .string()
       .length(3)
