@@ -35,7 +35,7 @@ const Products = () => {
 
   useEffect(() => {
     dispatch(setIsLoading(true));
-    fetchProducts(import.meta.env.VITE_API_URL);
+    fetchProducts(import.meta.env.VITE_API_PRODUCTS_URL);
     dispatch(setIsLoading(false));
   }, []);
 

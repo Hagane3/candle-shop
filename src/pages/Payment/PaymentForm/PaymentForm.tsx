@@ -44,6 +44,10 @@ const PaymentForm = ({ orderHandler, loadingHandler }: Props) => {
     dispatch(
       addToOrder({ payment: { ...data }, id: (Math.random() * 100).toFixed() })
     );
+    fetch(import.meta.env.VITE_API_ORDERS_URL, {
+      method: "POST",
+      body: JSON.stringify({ ...order, payment: { ...data } }),
+    });
     setTimeout(() => loadingHandler(false), 3000);
     orderHandler(true);
   };
