@@ -27,7 +27,11 @@ const PaymentForm = ({ orderHandler, loadingHandler }: Props) => {
     cardNumber: yup.string().required(),
     holderName: yup.string().required(),
     expiration: yup.string().required(),
-    ccv: yup.string().length(3).required(),
+    ccv: yup
+      .string()
+      .length(3)
+      .required()
+      .matches(/^[0-9]+$/, "Input must contain only digits"),
     billingAddress: yup.string().required(),
   });
 
@@ -44,7 +48,11 @@ const PaymentForm = ({ orderHandler, loadingHandler }: Props) => {
     dispatch(
       addToOrder({ payment: { ...data }, id: (Math.random() * 100).toFixed() })
     );
-    loadingHandler(false);
+    fetch(import.meta.env.VITE_API_ORDERS_URL, {
+      method: "POST",
+      body: JSON.stringify({ ...order, payment: { ...data } }),
+    });
+    setTimeout(() => loadingHandler(false), 3000);
     orderHandler(true);
   };
 
@@ -92,7 +100,7 @@ const PaymentForm = ({ orderHandler, loadingHandler }: Props) => {
               )}
             </div>
             <div>
-              <input {...register("ccv")} placeholder="CCV" />
+              <input type="password" {...register("ccv")} placeholder="CCV" />
               {errors.ccv && (
                 <p className={classes.error}>{errors.ccv.message}</p>
               )}

@@ -39,10 +39,7 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <div className={classes.user_container}>
-          <Link to="#">
-            <img src={profile} alt="profile button" />
-          </Link>
+        <div className={classes.cart_container}>
           <CartIcon />
         </div>
       </div>

@@ -34,7 +34,6 @@ const Contact = () => {
 
   const schema = yup.object().shape({
     email: yup.string().email().required(),
-    discount: yup.boolean(),
     name: yup.string().required(),
     secondName: yup.string().required(),
     address: yup.string().required(),
@@ -55,7 +54,6 @@ const Contact = () => {
     resolver: yupResolver(schema),
     defaultValues: {
       email: order.email,
-      discount: order.discount,
       name: order.name,
       secondName: order.secondName,
       address: order.address,
@@ -75,23 +73,12 @@ const Contact = () => {
     <section className={classes.root}>
       <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={classes.contact}>
-          <div className={classes.contact_label}>
-            <h2>Contact</h2>
-            <p>
-              Do you have an account? <span>Login</span>
-            </p>
-          </div>
+          <h2>Contact</h2>
         </div>
         <input placeholder="Email" {...register("email")} />
         {errors.email && (
           <p className={classes.error}>{errors.email.message}</p>
         )}
-        <div className={classes.discount}>
-          <input type="checkbox" {...register("discount")} id="discount" />
-          <label htmlFor="discount">
-            Add me to Candleaf newsletter for a 10% discount
-          </label>
-        </div>
         <div className={classes.shipping}>
           <h2>Shipping</h2>
           <div className={classes.input_divide}>
