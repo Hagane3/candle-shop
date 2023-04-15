@@ -73,12 +73,7 @@ const Contact = () => {
     <section className={classes.root}>
       <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={classes.contact}>
-          <div className={classes.contact_label}>
-            <h2>Contact</h2>
-            <p>
-              Do you have an account? <span>Login</span>
-            </p>
-          </div>
+          <h2>Contact</h2>
         </div>
         <input placeholder="Email" {...register("email")} />
         {errors.email && (
