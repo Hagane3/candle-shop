@@ -34,9 +34,6 @@ const Navbar = () => {
             <li>
               <Link to="/about">About us</Link>
             </li>
-            <li>
-              <Link to="/contact">Contact us</Link>
-            </li>
           </ul>
         </div>
         <div className={classes.cart_container}>
@@ -52,9 +49,6 @@ const Navbar = () => {
           </li>
           <li>
             <Link to="/about">About us</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact us</Link>
           </li>
         </ul>
       </div>
