@@ -18,6 +18,8 @@ import Products from "./pages/Products/index";
 import Contact from "./pages/Contact/index";
 import About from "./pages/About/index";
 
+import Page404 from "./pages/404/index";
+
 import App from "./App";
 import "./index.scss";
 
@@ -69,6 +71,10 @@ const router = createBrowserRouter([
         element: <Payment />,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <Page404 />,
   },
 ]);
 
