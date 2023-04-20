@@ -2,16 +2,16 @@ import { Outlet } from "react-router";
 import "./App.scss";
 import Footer from "./layouts/Footer/Footer";
 import Navbar from "./layouts/Navbar/Navbar";
-import { ScrollToTop } from "./utils/ScrollToTop";
+import { useScrollToTop } from "./hooks/useScrollToTop";
 
 function App() {
+  useScrollToTop();
+
   return (
     <div className="App">
-      <ScrollToTop>
-        <Navbar />
-        <Outlet />
-        <Footer />
-      </ScrollToTop>
+      <Navbar />
+      <Outlet />
+      <Footer />
     </div>
   );
 }
