@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import classes from "./QuantityBox.module.scss";
 
 const QuantityBox = ({ setQuantityHandler, quantity }: any) => {
@@ -19,7 +18,7 @@ const QuantityBox = ({ setQuantityHandler, quantity }: any) => {
         <button onClick={decreaseQuantity} className={classes.decrease}>
           -
         </button>
-        <span>{quantity}</span>
+        <span data-test-id="quantity-display">{quantity}</span>
         <button onClick={increaseQuantity} className={classes.increase}>
           +
         </button>

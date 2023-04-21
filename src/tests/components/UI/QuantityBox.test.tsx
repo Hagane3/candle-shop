@@ -1,4 +1,4 @@
-import { render, fireEvent } from "@testing-library/react";
+import { render, fireEvent, getByRole } from "@testing-library/react";
 import QuantityBox from "../../../components/UI/QuantityBox/QuantityBox";
 
 describe("QuantityBox", () => {
