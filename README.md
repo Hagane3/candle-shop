@@ -29,4 +29,4 @@ An online store selling soy candles. The main goal of the project was to design 
 
 ## Project Status
 
-Project is: in progress
+Project is: completed
